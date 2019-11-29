@@ -38,8 +38,32 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 
 
 //////////////////////////////////////////////////////////////////////////////////////// Admin
+
+/////////////////////////////////////////////////////////////////////// Show
 Route::get('admin/dashboard', 'AdminController@dashboard')
 ->name('AdminDashboard')->middleware('auth:admin');
+
+Route::get('admin/paket', 'AdminController@show_paket')
+->name('AdminShowPaket')->middleware('auth:admin');
+
+Route::get('admin/artikel', 'AdminController@show_artikel')
+->name('AdminShowArtikel')->middleware('auth:admin');
+
+Route::get('admin/user', 'AdminController@show_user')
+->name('AdminShowUser')->middleware('auth:admin');
+
+Route::get('admin/feedback', 'AdminController@show_feedback')
+->name('AdminShowfFedback')->middleware('auth:admin');
+
+/////////////////////////////////////////////////////////////////////// Add
+Route::get('admin/tambah-paket', 'AdminController@show_add_paket')
+->name('AdminAddPaket')->middleware('auth:admin');
+
+Route::get('admin/tambah-artikel', 'AdminController@show_add_artikel')
+->name('AdminAddArtikel')->middleware('auth:admin');
+
+Route::get('admin/tambah-user', 'AdminController@show_add_user')
+->name('AdminAddUser')->middleware('auth:admin');
 
 //////////////////////////////////////////////////////////////////////////////////////// Siswa
 Route::get('siswa/dashboard', 'SiswaController@dashboard')

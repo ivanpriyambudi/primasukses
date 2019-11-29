@@ -2,131 +2,243 @@
 <html lang="en">
 <head>
 
+  <!-- Title -->
   @yield('title')
 
+  <!-- Styles -->
+  <link type="text/css" rel="stylesheet" href="{{asset('assetss/plugins/materialize/css/materialize.min.css')}}"/>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{asset('assetss/plugins/material-preloader/css/materialPreloader.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assetss/plugins/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">        
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,700,900' rel='stylesheet' type='text/css'>
-  <!-- Material Icons CSS -->
-  <link href="{{asset('assets/fonts/iconfont/material-icons.css')}}" rel="stylesheet">
-  <!-- FontAwesoassetme CSS -->
-  <link href="{{asset('assets/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <!-- magnific-assetpopup -->
-  <link href="{{asset('assets/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
-  <!-- flexslidasseter -->
-  <link href="{{asset('assets/flexSlider/flexslider.css')}}" rel="stylesheet">
-  <!-- materialiassetze -->
-  <link href="{{asset('assets/materialize/css/materialize.min.css')}}" rel="stylesheet">
-  <!-- Bootstrassetap -->
-  <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <!-- shortcodassetes -->
-  <link href="{{asset('assets/css/shortcodes/shortcodes.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/shortcodes/login.css')}}" rel="stylesheet">
-  <!-- Main Stylassete CSS -->
-  <link href="{{asset('assets/style.css')}}" rel="stylesheet">
-  <!-- Creative assetCSS -->
-  <link href="{{asset('assets/css/skins/creative.css')}}" rel="stylesheet">
-
-  <style type="text/css">
-    #container {
-      padding-left: 300px;
-    }
-
-    #content {
-      padding: 20px;
-    }
-
-    @media only screen and (max-width : 992px) {
-      #container {
-        padding-left: 0px;
-      }
-    }
-  </style>
+  <!-- Theme Styles -->
+  <link href="{{asset('assetss/css/alpha.min.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{asset('assetss/css/custom.css')}}" rel="stylesheet" type="text/css"/>
 
 </head>
+<body>
 
-<body id="top" class="has-header-search">
+  @include('admin.app.app-loader')
 
- <header id="header" class="tt-nav nav-border-bottom">
-  <div class="header-sticky brand-header">
-    <div class="container">
-      <div id="materialize-menu" class="menuzord">
-
-        <a href="index.html" class="logo-brand">
-          <h2 class="white-text"><b>Admin</b></h2>
-        </a>
-
-        <ul class="menuzord-menu pull-right light">
-          <li><a href="javascript:void(0)" style="line-height: 70px;">Akun Admin</a>
-            <ul class="dropdown">
-              <li><a href="{{route('logout')}}">Logout</a></li>
-            </ul>
+  <aside id="slide-out" class="side-nav white fixed">
+    <div class="side-nav-wrapper">
+      <div class="sidebar-profile">
+        <div class="sidebar-profile-image">
+          <img src="assets/images/profile-image.png" class="circle" alt="">
+        </div>
+        <div class="sidebar-profile-info">
+          <a href="javascript:void(0);" class="account-settings-link">
+            <span>Admin<i class="material-icons right">arrow_drop_down</i></span>
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-account-settings">
+        <ul>
+          <li class="no-padding">
+            <a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
           </li>
         </ul>
-
       </div>
-    </div>
-  </div>
-</header>
+      <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
 
-<div id="container">
+        <li class="no-padding 
+        {{ (request()->routeIs(
 
-  <div id="menu">
-    <ul id="slide-out" class="side-nav fixed" style="margin-top: 7rem; padding-top: 70px;">
-      <li><a href="{{route('AdminDashboard')}}"><i class="material-icons left pr-pt">dashboard</i>Dashboard</a></li>
-      <li><a href="#"><i class="material-icons left pr-pt">dashboard</i>Dashboard</a></li>
-    </ul>
-  </div>
+          'AdminDashboard'
 
-  <div id="content">
+          )) ? 'active' : '' }}
+          ">
+          <a class="waves-effect waves-grey" href="{{route('AdminDashboard')}}">
+            <i class="material-icons">dashboard</i>Dashboard
+          </a>
+        </li>
 
-    @yield('konten')
+        {{-- paket --}}
 
-  </div>
+        <li class="no-padding
+        {{ (request()->routeIs(
 
-</div>
+          'AdminShowPaket',
+          'AdminAddPaket'
 
-<!-- Preloader -->
-<div id="preloader">
-  <div class="preloader-position"> 
-    <div class="progress">
-      <div class="indeterminate"></div>
-    </div>
-  </div>
-</div>
-<!-- End Preloader -->  
+          )) ? 'active' : '' }}
+          ">
+          <a class="collapsible-header waves-effect waves-grey 
+          {{ (request()->routeIs(
 
-<!-- jQuery -->
-<script src="{{asset('assets/js/jquery-2.1.3.min.js')}}"></script>
-<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/materialize/js/materialize.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.easing.min.js')}}"></script>
-<script src="{{asset('assets/js/smoothscroll.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.inview.min.js')}}"></script>
-<script src="{{asset('assets/js/menuzord.js')}}"></script>
-<script src="{{asset('assets/js/equalheight.js')}}"></script>
-<script src="{{asset('assets/js/imagesloaded.js')}}"></script>
-<script src="{{asset('assets/js/jquery.stellar.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.countTo.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.shuffle.min.js')}}"></script>
-<script src="{{asset('assets/js/masonry.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/js/twitterFetcher.min.js')}}"></script>
-<script src="{{asset('assets/flexSlider/jquery.flexslider-min.js')}}"></script>
-<script src="{{asset('assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('assets/js/scripts.js')}}"></script>
+            'AdminShowPaket',
+            'AdminAddPaket'
 
-<script>
-  $('.button-collapse').sideNav({
-    menuWidth: 300,
-    edge: 'left',
-    closeOnClick: false,
-    draggable: true
-  }
-  ); 
-</script>
+            )) ? 'active' : '' }}
+            ">
+            <i class="material-icons">work</i>Paket<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <li class="
+              {{ (request()->routeIs(
 
-@yield('js-plus')
+                'AdminShowPaket'
 
+                )) ? 'active' : '' }}
+                ">
+                <a href="{{route('AdminShowPaket')}}">Tabel Paket</a>
+              </li>
+              <li class="
+              {{ (request()->routeIs(
 
-</body>
+                'AdminAddPaket'
 
-</html>
+                )) ? 'active' : '' }}
+                "><a href="{{route('AdminAddPaket')}}">Tambah Paket</a></li>
+              </ul>
+            </div>
+          </li>
+
+          {{-- artikel --}}
+
+          <li class="no-padding
+          {{ (request()->routeIs(
+
+            'AdminShowArtikel',
+            'AdminAddArtikel'
+
+            )) ? 'active' : '' }}
+            ">
+            <a class="collapsible-header waves-effect waves-grey 
+            {{ (request()->routeIs(
+
+              'AdminShowArtikel',
+              'AdminAddArtikel'
+
+              )) ? 'active' : '' }}
+              ">
+              <i class="material-icons">assignment</i>Artikel<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
+            </a>
+            <div class="collapsible-body">
+              <ul>
+                <li class="
+                {{ (request()->routeIs(
+
+                  'AdminShowArtikel'
+
+                  )) ? 'active' : '' }}
+                  ">
+                  <a href="{{route('AdminShowArtikel')}}">Tabel Artikel</a>
+                </li>
+                <li class="
+                {{ (request()->routeIs(
+
+                  'AdminAddArtikel'
+
+                  )) ? 'active' : '' }}
+                  "><a href="{{route('AdminAddArtikel')}}">Tambah Artikel</a></li>
+                </ul>
+              </div>
+            </li>
+
+            {{-- User --}}
+
+            <li class="no-padding
+            {{ (request()->routeIs(
+
+              'AdminShowUser',
+              'AdminAddUser'
+
+              )) ? 'active' : '' }}
+              ">
+              <a class="collapsible-header waves-effect waves-grey 
+              {{ (request()->routeIs(
+
+                'AdminShowUser',
+                'AdminAddUser'
+
+                )) ? 'active' : '' }}
+                ">
+                <i class="material-icons">supervised_user_circle</i>User<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
+              </a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=" 
+                  {{ (request()->routeIs(
+
+                    'AdminShowUser'
+
+                    )) ? 'active' : '' }}
+                    ">
+                    <a href="{{route('AdminShowUser')}}">Tabel User</a>
+                  </li>
+                  <li class="
+                  {{ (request()->routeIs(
+
+                    'AdminAddUser'
+
+                    )) ? 'active' : '' }}
+                    "><a href="{{route('AdminAddUser')}}">Tambah User</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              {{-- feedback --}}
+
+              <li class="no-padding
+              {{ (request()->routeIs(
+
+                'AdminShowfFedback'
+
+                )) ? 'active' : '' }}
+                ">
+                <a class="collapsible-header waves-effect waves-grey 
+                {{ (request()->routeIs(
+
+                  'AdminShowfFedback'
+
+                  )) ? 'active' : '' }}
+                  ">
+                  <i class="material-icons">speaker_notes</i>Feedback<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
+                </a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li class="no-padding 
+                    {{ (request()->routeIs(
+
+                      'AdminShowfFedback'
+
+                      )) ? 'active' : '' }}
+                      ">
+                      <a href="{{route('AdminShowfFedback')}}">Tabel Feedback</a>
+                    </li>
+                    <li><a href="#">Tambah Feedback</a></li>
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </aside>
+        <main class="mn-inner">
+          <div class="row">
+            <div class="col s12">
+              <div class="page-title">@yield('title-page')</div>
+            </div>
+          </div>
+
+          @yield('konten')
+
+        </main>
+      </div>
+      <div class="left-sidebar-hover"></div>
+
+      <!-- Javascripts -->
+      <script src="{{asset('assetss/plugins/jquery/jquery-2.2.0.min.js')}}"></script>
+      <script src="{{asset('assetss/plugins/materialize/js/materialize.min.js')}}"></script>
+      <script src="{{asset('assetss/plugins/material-preloader/js/materialPreloader.min.js')}}"></script>
+      <script src="{{asset('assetss/plugins/jquery-blockui/jquery.blockui.js')}}"></script>
+      <script src="{{asset('assetss/js/alpha.min.js')}}"></script>
+      <script src="{{asset('assetss/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+      <script src="{{asset('assetss/js/pages/table-data.js')}}"></script>
+
+      @yield('js-plus')
+
+    </body>
+    </html>
