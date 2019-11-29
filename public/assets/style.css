@@ -5,7 +5,7 @@
     Website: http://trendytheme.net
     Version: 1.5
     Support: http://trendytheme.net/support
-*********************************************************/
+    *********************************************************/
 
 
 
@@ -704,7 +704,7 @@ thead {
 .green-color {
     color: #71c44c !important;
 }
- 
+
 .pink {
     background-color: #2196f3 !important;
 }
@@ -790,7 +790,7 @@ thead {
     background-color: rgba(0,0,0,.6);
 }
 .overlay.dark-7:before {
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(21, 101, 192, 0.3803921568627451);
 }
 .overlay.dark-8:before {
     background-color: rgba(0,0,0,.8);
@@ -944,7 +944,7 @@ thead {
   height: 100vh;
   background: url('assets/img/banner/clouds.png') 0px 100% repeat-x;
   -webkit-animation: cloudLoop 80s linear infinite;
-          animation: cloudLoop 80s linear infinite;
+  animation: cloudLoop 80s linear infinite;
 }
 
 
@@ -952,23 +952,23 @@ thead {
 @-webkit-keyframes cloudLoop {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-  100% {
+    transform: translate3d(0, 0, 0);
+}
+100% {
     -webkit-transform: translate3d(-50%, 0, 0);
-            transform: translate3d(-50%, 0, 0);
-  }
+    transform: translate3d(-50%, 0, 0);
+}
 }
 
 @keyframes cloudLoop {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-  }
-  100% {
+    transform: translate3d(0, 0, 0);
+}
+100% {
     -webkit-transform: translate3d(-50%, 0, 0);
-            transform: translate3d(-50%, 0, 0);
-  }
+    transform: translate3d(-50%, 0, 0);
+}
 }
 
 
@@ -1071,9 +1071,9 @@ thead {
 }
 
 @media screen and (max-width: 991px) {
-   .mocup-wrapper-sm img{
-        width: 100%;
-   } 
+ .mocup-wrapper-sm img{
+    width: 100%;
+} 
 }
 
 
@@ -1613,7 +1613,7 @@ nav ul a {
 @media only screen and (min-width: 1200px){
   .container {
     width: 1170px;
-  }
+}
 }
 
 @media only screen and (max-width: 749px) {
@@ -1623,8 +1623,8 @@ nav ul a {
 }
 @media only screen and (max-width: 601px) {
     .container {
-         width: 90%; 
-    }
+       width: 90%; 
+   }
 }
 
 .container .row,
@@ -1814,28 +1814,28 @@ KEY FRAME
 @-webkit-keyframes BottomToTop {
     49% {
         -webkit-transform : translateY(-100%);
-        }
+    }
     50% {
         opacity           : 0;
         -webkit-transform : translateY(100%);
-        }
+    }
     51% {
         opacity : 1;
-        }
     }
+}
 
 @-moz-keyframes BottomToTop {
     49% {
         -moz-transform : translateY(-100%);
-        }
+    }
     50% {
         opacity        : 0;
         -moz-transform : translateY(100%);
-        }
+    }
     51% {
         opacity : 1;
-        }
     }
+}
 
 @keyframes BottomToTop {
     49% {
@@ -1855,28 +1855,28 @@ KEY FRAME
 @-webkit-keyframes TopToBottom {
     49% {
         -webkit-transform : translateY(-100%);
-        }
+    }
     50% {
         opacity           : 0;
         -webkit-transform : translateY(100%);
-        }
+    }
     51% {
         opacity : 1;
-        }
     }
+}
 
 @-moz-keyframes TopToBottom {
     49% {
         -moz-transform : translateY(-100%);
-        }
+    }
     50% {
         opacity        : 0;
         -moz-transform : translateY(100%);
-        }
+    }
     51% {
         opacity : 1;
-        }
     }
+}
 
 @keyframes TopToBottom {
     49% {
@@ -2276,6 +2276,10 @@ KEY FRAME
 }
 #preloader .progress .indeterminate{
     background:#03a9f4;
+}
+
+.pr-pt {
+    padding-top: 20px;
 }
 
 

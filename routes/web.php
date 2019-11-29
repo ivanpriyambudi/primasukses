@@ -11,6 +11,7 @@
 |
 */
 
+//////////////////////////////////////////////////////////////////////////////////////// Landing Page
 Route::get('/', function () {
 	return view('landing.home');
 })->name('Home');
@@ -32,3 +33,14 @@ Route::get('/contact', 'HomeController@contact')
 
 Route::get('/join-us', 'HomeController@join')
 ->name('HomeJoin');
+
+
+//////////////////////////////////////////////////////////////////////////////////////// Admin
+Route::get('admin/dashboard', 'AdminController@dashboard')
+->name('AdminDashboard');
+
+//////////////////////////////////////////////////////////////////////////////////////// Siswa
+Route::get('siswa/dashboard', 'SiswaController@dashboard')
+->name('SiswaDashboard');
+
+
