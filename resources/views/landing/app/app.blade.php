@@ -172,6 +172,7 @@
     </div>
     <!-- End Preloader -->  
 
+    @yield('modal')
 
     <!-- jQuery -->
     <script src="{{asset('assets/js/jquery-2.1.3.min.js')}}"></script>

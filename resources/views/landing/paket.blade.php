@@ -50,7 +50,13 @@
 									<h1><b>Rp.</b> 50.000,00</h1>
 								</div>
 								<div class="promo-btn">
-									<a href="#" class="btn btn-lg waves-effect waves-light">Daftar Sekarang</a>
+
+									{{-- if belum login --}}
+									<a class="btn btn-lg waves-effect waves-light modal-trigger" href="#modal1">Daftar Sekarang</a>
+
+
+									{{-- if sudah login --}}
+									<a href="#modal1" class="btn btn-lg waves-effect waves-light">Daftar Sekarang</a>
 								</div>
 							</div>							
 
@@ -65,5 +71,24 @@
 	</div>
 </section>
 
+@endsection
 
+@section('modal')
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Modal Header</h4>
+		<p>A bunch of text</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+	</div>
+</div>
+@endsection
+
+@section('js-plus')
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.modal-trigger').leanModal();
+	});
+</script>
 @endsection
