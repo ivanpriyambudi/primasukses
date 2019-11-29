@@ -32,15 +32,17 @@ Route::get('/contact', 'HomeController@contact')
 ->name('HomeContact');
 
 Route::get('/join-us', 'HomeController@join')
-->name('HomeJoin');
+->name('HomeJoin')->middleware('guest');
+Route::post('/login', 'LoginController@postLogin');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
 
 //////////////////////////////////////////////////////////////////////////////////////// Admin
 Route::get('admin/dashboard', 'AdminController@dashboard')
-->name('AdminDashboard');
+->name('AdminDashboard')->middleware('auth:admin');
 
 //////////////////////////////////////////////////////////////////////////////////////// Siswa
 Route::get('siswa/dashboard', 'SiswaController@dashboard')
-->name('SiswaDashboard');
+->name('SiswaDashboard')->middleware('auth:user');
 
 

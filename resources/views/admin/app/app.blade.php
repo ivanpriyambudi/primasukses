@@ -58,7 +58,7 @@
         <ul class="menuzord-menu pull-right light">
           <li><a href="javascript:void(0)" style="line-height: 70px;">Akun Admin</a>
             <ul class="dropdown">
-              <li><a href="#">Logout</a></li>
+              <li><a href="{{route('logout')}}">Logout</a></li>
             </ul>
           </li>
         </ul>

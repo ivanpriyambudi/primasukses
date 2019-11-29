@@ -20,19 +20,20 @@
       <div class="card-wrapper"></div>
       <div class="card-wrapper">
         <h1 class="title">Login</h1>
-        <form>
+        <form action="/login" method="post">
+          @csrf
           <div class="input-container">
-            <input type="text" id="username" required="required"/>
+            <input type="text" name="username" id="username" required="required"/>
             <label for="username">Username</label>
             <div class="bar"></div>
           </div>
           <div class="input-container">
-            <input type="password" id="password" required="required"/>
+            <input type="password" name="password" id="password" required="required"/>
             <label for="password">Password</label>
             <div class="bar"></div>
           </div>
           <div class="button-container">
-            <a href="#." class="btn btn-lg btn-block waves-effect waves-light">Login</a>
+            <button type="submit" class="btn btn-lg btn-block waves-effect waves-light">Login</button>
           </div>
         </form>
       </div>
