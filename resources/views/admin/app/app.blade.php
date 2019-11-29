@@ -72,12 +72,13 @@
 
   <div id="menu">
     <ul id="slide-out" class="side-nav fixed" style="margin-top: 7rem; padding-top: 70px;">
+      <li><a href="{{route('AdminDashboard')}}"><i class="material-icons left pr-pt">dashboard</i>Dashboard</a></li>
       <li><a href="#"><i class="material-icons left pr-pt">dashboard</i>Dashboard</a></li>
     </ul>
   </div>
 
   <div id="content">
-    
+
     @yield('konten')
 
   </div>
