@@ -35,6 +35,12 @@
       <div class="sidebar-account-settings">
         <ul>
           <li class="no-padding">
+            <a class="waves-effect waves-grey" href="{{route('AdminAddContact')}}"><i class="material-icons">perm_phone_msg</i>Contact</a>
+          </li>
+          <li class="no-padding">
+            <a class="waves-effect waves-grey" href="{{route('AdminAddAbout')}}"><i class="material-icons">language</i>About</a>
+          </li>
+          <li class="no-padding">
             <a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
           </li>
         </ul>
@@ -137,46 +143,57 @@
               </div>
             </li>
 
-            {{-- User --}}
-
+            {{-- Pengajar --}}
             <li class="no-padding
             {{ (request()->routeIs(
 
-              'AdminShowUser',
-              'AdminAddUser'
+              'AdminShowPengajar',
+              'AdminAddPengajar'
 
               )) ? 'active' : '' }}
               ">
               <a class="collapsible-header waves-effect waves-grey 
               {{ (request()->routeIs(
 
-                'AdminShowUser',
-                'AdminAddUser'
+                'AdminShowPengajar',
+                'AdminAddPengajar'
 
                 )) ? 'active' : '' }}
                 ">
-                <i class="material-icons">supervised_user_circle</i>User<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
+                <i class="material-icons">record_voice_over</i>Pengajar<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
               </a>
               <div class="collapsible-body">
                 <ul>
-                  <li class=" 
+                  <li class="
                   {{ (request()->routeIs(
 
-                    'AdminShowUser'
+                    'AdminShowPengajar'
 
                     )) ? 'active' : '' }}
                     ">
-                    <a href="{{route('AdminShowUser')}}">Tabel User</a>
+                    <a href="{{route('AdminShowPengajar')}}">Tabel Pengajar</a>
                   </li>
                   <li class="
                   {{ (request()->routeIs(
 
-                    'AdminAddUser'
+                    'AdminAddPengajar'
 
                     )) ? 'active' : '' }}
-                    "><a href="{{route('AdminAddUser')}}">Tambah User</a></li>
+                    "><a href="{{route('AdminAddPengajar')}}">Tambah Pengajar</a></li>
                   </ul>
                 </div>
+              </li>
+
+              {{-- User --}}
+
+              <li class="no-padding
+              {{ (request()->routeIs(
+
+                'AdminShowUser'
+
+                )) ? 'active' : '' }}
+                ">
+                <a class="waves-effect waves-grey active" href="{{route('AdminShowUser')}}"><i class="material-icons">supervised_user_circle</i>User</a>
               </li>
 
               {{-- feedback --}}
@@ -188,29 +205,7 @@
 
                 )) ? 'active' : '' }}
                 ">
-                <a class="collapsible-header waves-effect waves-grey 
-                {{ (request()->routeIs(
-
-                  'AdminShowfFedback'
-
-                  )) ? 'active' : '' }}
-                  ">
-                  <i class="material-icons">speaker_notes</i>Feedback<i class="nav-drop-icon material-icons">keyboard_arrow_right</i>
-                </a>
-                <div class="collapsible-body">
-                  <ul>
-                    <li class="no-padding 
-                    {{ (request()->routeIs(
-
-                      'AdminShowfFedback'
-
-                      )) ? 'active' : '' }}
-                      ">
-                      <a href="{{route('AdminShowfFedback')}}">Tabel Feedback</a>
-                    </li>
-                    <li><a href="#">Tambah Feedback</a></li>
-                  </ul>
-                </div>
+                <a class="waves-effect waves-grey active" href="{{route('AdminShowfFedback')}}"><i class="material-icons">speaker_notes</i>Feedback</a>
               </li>
 
             </ul>

@@ -25,6 +25,26 @@ Paket
 								<input name="harga" id="harga" type="number" class="validate">
 								<label for="harga">Harga Paket</label>
 							</div>
+							<div class="input-field col s6">
+								<select>
+									<option value="" disabled selected>Pilih Jenjang</option>
+									<option value="SD">SD</option>
+									<option value="SMP">SMP</option>
+									<option value="SMA">SMA</option>
+								</select>
+								<label>Jenjang</label>
+							</div>
+							<div class="input-field col s6">
+								<div class="file-field input-field">
+									<div class="btn teal lighten-1">
+										<span>Gambar</span>
+										<input name="gambar" type="file" multiple>
+									</div>
+									<div class="file-path-wrapper">
+										<input name="gambar" class="file-path validate" type="text" placeholder="Upload Gambar Artikel">
+									</div>
+								</div>
+							</div>
 							<div class="input-field col s12">
 								
 								<textarea name="detail" id="detail" class="materialize-textarea"></textarea>

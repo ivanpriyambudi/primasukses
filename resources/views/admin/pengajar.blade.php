@@ -1,11 +1,11 @@
 @extends('admin.app.app')
 
 @section('title')
-<title>Primasukses | Paket</title>
+<title>Primasukses | Pengajar</title>
 @endsection
 
 @section('title-page')
-Paket
+Pengajar
 @endsection
 @section('konten')
 
@@ -18,9 +18,8 @@ Paket
 						<tr>
 							<th>No</th>
 							<th>Nama</th>
-							<th>Gambar</th>
-							<th>Detail</th>
-							<th>Harga</th>
+							<th>NIP</th>
+							<th>Paket</th>
 							<th>Jenjang</th>
 							<th class="b-ta">Action</th>
 						</tr>
@@ -29,9 +28,8 @@ Paket
 						<tr>
 							<th>No</th>
 							<th>Nama</th>
-							<th>Gambar</th>
-							<th>Detail</th>
-							<th>Harga</th>
+							<th>NIP</th>
+							<th>Paket</th>
 							<th>Jenjang</th>
 							<th class="b-ta">Action</th>
 						</tr>
@@ -39,7 +37,6 @@ Paket
 					<tbody>
 						<tr>
 							<td>Tiger Nixon</td>
-							<th>Gambar</th>
 							<td>System Architect</td>
 							<td>Edinburgh</td>
 							<td>61</td>
@@ -56,43 +53,37 @@ Paket
 	</div>
 </div>
 
-
 {{-- modal Edit --}}
 <div id="modal1" class="modal">
 	<div class="modal-content">
-		<h4>Edit Paket</h4>
+		<h4>Edit Pengajar</h4>
 		
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
 					<div class="card-content">
+						<span class="card-title">Tambah Pengajar Baru</span><br>
 						<div class="row">
 							<form action="" method="POST" class="col s12">
 								<div class="row">
 									<div class="input-field col s6">
 										<input name="nama" id="nama" type="text" class="validate">
-										<label for="nama">Nama Paket</label>
+										<label for="nama">Nama Pengajar</label>
 									</div>
 									<div class="input-field col s6">
-										<input name="harga" id="harga" type="number" class="validate">
-										<label for="harga">Harga Paket</label>
+										<input name="nip" id="nip" type="text" class="validate">
+										<label for="nip">NIP Pengajar</label>
 									</div>
 									<div class="input-field col s6">
-										<div class="file-field input-field">
-											<div class="btn teal lighten-1">
-												<span>Gambar</span>
-												<input name="gambar" type="file" multiple>
-											</div>
-											<div class="file-path-wrapper">
-												<input name="gambar" class="file-path validate" type="text" placeholder="Upload Gambar Artikel">
-											</div>
-										</div>
+										<select>
+											<option value="" disabled selected>Pilih Paket</option>
+											<option value="SD">SD</option>
+											<option value="SMP">SMP</option>
+											<option value="SMA">SMA</option>
+										</select>
+										<label>Paket</label>
 									</div>
-									<div class="input-field col s12">
-
-										<textarea name="detail" id="detail" class="materialize-textarea"></textarea>
-										<label for="detail">Detail</label>
-									</div>
+									<input type="hidden" name="id_paket" value="">
 									<div class="input-field col s12 center">
 										<button type="submit" class="waves-effect waves-light btn b-sub">Submit</button>
 									</div>
@@ -110,5 +101,6 @@ Paket
 	</div>
 </div>
 {{-- modal Edit --}}
+
 
 @endsection

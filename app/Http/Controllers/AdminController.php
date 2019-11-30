@@ -33,6 +33,13 @@ class AdminController extends Controller
 		return view('admin.feedback');
 	}
 
+	public function show_pengajar()
+	{
+		return view('admin.pengajar');
+	}
+
+	
+
 ///////////////////////////////////////////////////////////// Add
 	public function show_add_paket()
 	{
@@ -44,8 +51,19 @@ class AdminController extends Controller
 		return view('admin.add.add-artikel');
 	}
 
-	public function show_add_user()
+	public function show_add_pengajar()
 	{
-		return view('admin.add.add-user');
+		return view('admin.add.add-pengajar');
 	}
+
+	public function show_add_about()
+	{
+		return view('admin.add.add-about');
+	}
+
+	public function show_add_contact()
+	{
+		return view('admin.add.add-contact');
+	}
+
 }

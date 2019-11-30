@@ -56,6 +56,9 @@ Route::get('admin/user', 'AdminController@show_user')
 Route::get('admin/feedback', 'AdminController@show_feedback')
 ->name('AdminShowfFedback')->middleware('auth:admin');
 
+Route::get('admin/pengajar', 'AdminController@show_pengajar')
+->name('AdminShowPengajar')->middleware('auth:admin');
+
 /////////////////////////////////////////////////////////////////////// Add
 Route::get('admin/tambah-paket', 'AdminController@show_add_paket')
 ->name('AdminAddPaket')->middleware('auth:admin');
@@ -65,6 +68,15 @@ Route::get('admin/tambah-artikel', 'AdminController@show_add_artikel')
 
 Route::get('admin/tambah-user', 'AdminController@show_add_user')
 ->name('AdminAddUser')->middleware('auth:admin');
+
+Route::get('admin/tambah-pengajar', 'AdminController@show_add_pengajar')
+->name('AdminAddPengajar')->middleware('auth:admin');
+
+Route::get('admin/tambah-about', 'AdminController@show_add_about')
+->name('AdminAddAbout')->middleware('auth:admin');
+
+Route::get('admin/tambah-contact', 'AdminController@show_add_contact')
+->name('AdminAddContact')->middleware('auth:admin');
 
 //////////////////////////////////////////////////////////////////////////////////////// Siswa
 Route::get('user/dashboard', 'SiswaController@dashboard')

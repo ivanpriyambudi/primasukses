@@ -20,6 +20,7 @@ Feedback
 							<th>Paket</th>
 							<th>Nama</th>
 							<th>Isi</th>
+							<th class="b-ta">Action</th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -28,6 +29,7 @@ Feedback
 							<th>Paket</th>
 							<th>Nama</th>
 							<th>Isi</th>
+							<th class="b-ta">Action</th>
 						</tr>
 					</tfoot>
 					<tbody>
@@ -36,6 +38,9 @@ Feedback
 							<td>System Architect</td>
 							<td>Edinburgh</td>
 							<td>61</td>
+							<td class="b-ta">
+								<a class="waves-effect waves-light btn red">Hapus</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
