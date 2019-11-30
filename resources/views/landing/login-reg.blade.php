@@ -46,8 +46,8 @@
           <div class="row" style="margin: 0px;">
             <div class="col s6">
               <div class="input-container">
-                <input type="text" id="newusername" required="required"/>
-                <label for="newusername">Username</label>
+                <input type="text" id="nama" required="required"/>
+                <label for="nama">Nama Lengkap</label>
                 <div class="bar"></div>
               </div>
               <div class="input-container">
@@ -56,50 +56,44 @@
                 <div class="bar"></div>
               </div>
               <div class="input-container">
-                <input type="password" id="newpassword" required="required"/>
-                <label for="newpassword">Password</label>
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="col s6">
-              <div class="input-container">
                 <input type="number" id="username" required="required"/>
                 <label for="username">No Telepon</label>
                 <div class="bar"></div>
               </div>
-
-              <div class="input-container" style="padding-top: 10px; margin-top: 80px;">
-                <select class="drop">
-                  <option value="" disabled selected>Pilih Jenjang</option>
-                  <option value="1">SD</option>
-                  <option value="2">SMP</option>
-                  <option value="3">SMA</option>
-                </select>
-                <label style="top: -40px;">Jenjang</label>
-                <div class="bar"></div>
-              </div>
-
-              <div class="input-container" style="padding-top: 10px; margin-top: 80px;">
-                <select class="drop">
-                  <option value="" disabled selected>Pilih Cabang / Kota Terdekat</option>
-                  <option value="1">SD</option>
-                  <option value="2">SMP</option>
-                  <option value="3">SMA</option>
-                </select>
-                <label style="top: -40px;">Cabang / Kota Terdekat</label>
-                <div class="bar"></div>
-              </div>
             </div>
-          </div>
+            <div class="col s6">
+             <div class="input-container">
+              <input type="text" id="newusername" required="required"/>
+              <label for="newusername">Username</label>
+              <div class="bar"></div>
+            </div>
+            <div class="input-container">
+              <input type="password" id="newpassword" required="required"/>
+              <label for="newpassword">Password</label>
+              <div class="bar"></div>
+            </div>
+            <div class="input-container" style="padding-top: 10px; margin-top: 80px;">
+              <select class="drop">
+                <option value="" disabled selected>Pilih Jenjang</option>
+                <option value="1">SD</option>
+                <option value="2">SMP</option>
+                <option value="3">SMA</option>
+              </select>
+              <label style="top: -40px;">Jenjang</label>
+              <div class="bar"></div>
+            </div>
 
-          <div class="button-container">
-            <a href="#." class="btn btn-lg btn-block white waves-effect waves-red">Register</a>
           </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="button-container">
+          <a href="#." class="btn btn-lg btn-block white waves-effect waves-red">Register</a>
+        </div>
+      </form>
     </div>
-
   </div>
+
+</div>
 </section>
 
 <br>
