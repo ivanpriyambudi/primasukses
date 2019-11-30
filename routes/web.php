@@ -35,6 +35,7 @@ Route::get('/join-us', 'HomeController@join')
 ->name('HomeJoin')->middleware('guest');
 Route::post('/login', 'LoginController@postLogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::post('/regis', 'LoginController@register');
 
 
 //////////////////////////////////////////////////////////////////////////////////////// Admin
@@ -66,7 +67,7 @@ Route::get('admin/tambah-user', 'AdminController@show_add_user')
 ->name('AdminAddUser')->middleware('auth:admin');
 
 //////////////////////////////////////////////////////////////////////////////////////// Siswa
-Route::get('siswa/dashboard', 'SiswaController@dashboard')
+Route::get('user/dashboard', 'SiswaController@dashboard')
 ->name('SiswaDashboard')->middleware('auth:user');
 
 

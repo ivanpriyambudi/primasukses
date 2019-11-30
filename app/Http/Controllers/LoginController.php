@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
   
@@ -22,6 +23,7 @@ class LoginController extends Controller
     } else if (Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password])) {
       return redirect()->intended('/user/dashboard');
     }
+    return redirect()->route('HomeJoin');
   }
   public function logout()
   {
@@ -31,5 +33,17 @@ class LoginController extends Controller
       Auth::guard('user')->logout();
     }
     return redirect('/');
+  }
+  public function register(Request $request)
+  {
+      $user=new User();
+      $user->nama=$request->nama;
+      $user->email=$request->email;
+      $user->telp=$request->nomor;
+      $user->username=$request->username;
+      $user->password=Hash::make($request->password);
+      $user->jenjang=$request->jenjang;
+      $user->save();
+      return redirect()->route('HomeJoin');
   }
 }
