@@ -28,8 +28,17 @@ Route::get('/artikel', 'HomeController@artikel')
 Route::get('/artikel-detail/{id}', 'HomeController@artikel_detail')
 ->name('HomeArtikelDetail');
 
-Route::get('/paket', 'HomeController@paket')
-->name('HomePaket');
+Route::get('/paket/sd', 'HomeController@paket_sd')
+->name('HomePaketSD');
+
+Route::get('/paket/smp', 'HomeController@paket_smp')
+->name('HomePaketSMP');
+
+Route::get('/paket/sma', 'HomeController@paket_sma')
+->name('HomePaketSMA');
+
+Route::get('/paket/detail/{id}', 'HomeController@paket_detail')
+->name('HomePaketDetail');
 
 Route::get('/contact', 'HomeController@contact')
 ->name('HomeContact');

@@ -7,88 +7,127 @@
 @section('konten')
 
 @section('title-konten')
-<h1 class="white-text">Nama Paket Bimbel</h1>
+<h1 class="white-text">Paket Bimbel 
+	{{ (request()->routeIs('HomePaketSD')) ? 'SD' : '' }}
+	{{ (request()->routeIs('HomePaketSMP')) ? 'SMP' : '' }}
+	{{ (request()->routeIs('HomePaketSMA')) ? 'SMA' : '' }}
+</h1>
 @endsection
 @section('title-konten2')
-<li>Paket Bimbel</li>
-<li class="active">Nama Paket</li>
+<li>Paket Bimbel 
+	{{ (request()->routeIs('HomePaketSD')) ? 'SD' : '' }}
+	{{ (request()->routeIs('HomePaketSMP')) ? 'SMP' : '' }}
+	{{ (request()->routeIs('HomePaketSMA')) ? 'SMA' : '' }}
+</li>
 @endsection
 
-<section class="blog-section section-padding">
+<section class="section-padding default-blog grid-blog">
 	<div class="container">
+
 		<div class="row">
-			<div class="col-md-12">
-				<div class="posts-content single-post">
+			<div class="col-md-9">
+				<div class="row">
 
-					<article class="post-wrapper">
+					
 
-						<header class="entry-header-wrapper clearfix">
+					@if(request()->routeIs('HomePaketSD'))
 
-							<div class="entry-header">
-								<h2 class="entry-title">CTC to showcase technology solutions at Sea Air Space Exposition</h2>
+					@foreach($sd as $s)
+					<div class="col-md-6">
+						<article class="post-wrapper">
+							<div class="thumb-wrapper">
+								<img src="../{{ $s->gambar }}" class="img-responsive" alt="" >
+								<div class="entry-header">
+									<h2 class="entry-title">
+										<a href="{{route('HomePaketDetail', $s->id)}}">
+											{{$s->nama}}
+										</a>
+									</h2>
+								</div>
 							</div>
+							<div class="entry-content">
+								<p>{{$s->detail}}</p>
+							</div>
+						</article>
+					</div>
+					@endforeach
+					@endif
+					@if(request()->routeIs('HomePaketSMP'))
 
-						</header><!-- /.entry-header-wrapper -->
+					@foreach($smp as $sp)
 
-						<div class="thumb-wrapper">
-							<img src="assets/img/blog/blog-1.jpg" class="img-responsive" alt="" >
-						</div><!-- .post-thumb -->
-
-
-						<div class="entry-content">
-							<p>Maecenas varius finibus orci vel dignissim. Nam posuere, magna pellentesque accumsan tincidunt, libero lorem convallis lectus, tincidunt accumsan enim ex ut sem. Ut in augue congue, tempus urna sit amet, condimentum lorem. Pellentesque est sem, semper sit amet velit et, commodo fringilla turpis. Aenean quam erat, eleifend quis congue vitae, interdum vitae risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed viverra nulla.</p>
-
-							<p>Maecenas congue risus enim, a bibendum erat sodales non. Aliquam sodales nunc id nisi scelerisque, eu semper neque condimentum. Suspendisse at purus eget velit volutpat consequat. Sed sodales, enim a pretium euismod, dui nunc venenatis enim, a hendrerit diam mauris sed ligula. Integer malesuada velit velit, et rhoncus velit finibus eu. Nam faucibus nulla lectus, eu laoreet mi rhoncus sed. Suspendisse iaculis mollis faucibus. Phasellus nisi ex, lacinia ac velit eget, congue ultrices ante. Vestibulum a ex dui. Etiam eget ex sodales, semper urna et, faucibus nisi. Etiam vehicula, elit in efficitur pretium, quam quam pellentesque tellus, vel laoreet erat leo id tortor. Morbi lobortis erat non ipsum hendrerit, non venenatis erat tempus. Nunc laoreet malesuada dolor, nec iaculis mi suscipit hendrerit. Aliquam arcu magna.</p>
-						</div><!-- .entry-content -->
-
-
-						<footer class="entry-footer">
-
-							<div class="promo-box border-box">
-								<div class="promo-info">
-									<h2 class="text-extrabold text-uppercase">Nama Paket</h2>
-									<h1><b>Rp.</b> 50.000,00</h1>
+					<div class="col-md-6">
+						<article class="post-wrapper">
+							<div class="thumb-wrapper">
+								<img src="{{ str_replace('public/','../../../../', $sp->gambar) }}" class="img-responsive" alt="" >
+								<div class="entry-header">
+									<h2 class="entry-title">
+										<a href="{{route('HomePaketDetail', $sp->id)}}">
+											{{$sp->nama}}
+										</a>
+									</h2>
 								</div>
-								<div class="promo-btn">
+							</div>
+							<div class="entry-content">
+								<p>{{$sp->detail}}</p>
+							</div>
+						</article>
+					</div>
+					@endforeach
+					@endif
+					@if(request()->routeIs('HomePaketSMA'))
 
-									{{-- if belum login --}}
-									<a class="btn btn-lg waves-effect waves-light modal-trigger" href="#modal1">Daftar Sekarang</a>
-
-
-									{{-- if sudah login --}}
-									<a href="#modal1" class="btn btn-lg waves-effect waves-light">Daftar Sekarang</a>
+					@foreach($sma as $sa)
+					<div class="col-md-6">
+						<article class="post-wrapper">
+							<div class="thumb-wrapper">
+								<img src="{{ str_replace('public/','../../../../', $sa->gambar) }}" class="img-responsive" alt="" >
+								<div class="entry-header">
+									<h2 class="entry-title">
+										<a href="{{route('HomePaketDetail', $sa->id)}}">
+											{{$sa->nama}}
+										</a>
+									</h2>
 								</div>
-							</div>							
+							</div>
+							<div class="entry-content">
+								<p>{{$sa->detail}}</p>
+							</div>
+						</article>
+					</div>
+					@endforeach
 
-						</footer>
+					
+					@endif
 
-					</article>
 
 				</div>
 			</div>
+			<div class="col-md-3">
+				<div class="tt-sidebar-wrapper" role="complementary">
+
+					{{-- <div class="widget widget_categories">
+						<h3 class="widget-title">Recent Post</h3>   
+						<ul>
+							@foreach($paket as $pak)
+							<li><a href="{{route('HomeArtikelDetail', $art->id)}}">{{$art->judul}}</a></li>
+							@endforeach
+						</ul>
+					</div> --}}
+
+				</div>
+
+			</div>
 
 		</div>
+
+		<ul class="pagination post-pagination text-center mt-50">
+			<li><a href="#." class="waves-effect waves-light"><i class="fa fa-angle-left"></i></a></li>
+			<li><span class="current waves-effect waves-light">1</span></li>
+			<li><a href="#." class="waves-effect waves-light"><i class="fa fa-angle-right"></i></a></li>
+		</ul>
+
 	</div>
 </section>
 
-@endsection
-
-@section('modal')
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h4>Modal Header</h4>
-		<p>A bunch of text</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-	</div>
-</div>
-@endsection
-
-@section('js-plus')
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.modal-trigger').leanModal();
-	});
-</script>
 @endsection

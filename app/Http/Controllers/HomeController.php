@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\About;
 use App\Artikel;
+use App\Paket;
+use App\Contact;
 
 class HomeController extends Controller
 {
@@ -38,15 +40,39 @@ class HomeController extends Controller
         return view('landing.artikel-detail',compact('artikel','recent'));
     }
 
-    public function paket()
+    public function paket_sd()
     {
+        $sd = Paket::where('jenjang', 'SD')->get();
         
-        return view('landing.paket');
+        return view('landing.paket',compact('sd'));
+    }
+
+    public function paket_smp()
+    {
+        $smp = Paket::where('jenjang', 'SMP')->get();
+        
+        return view('landing.paket',compact('smp'));
+    }
+
+    public function paket_sma()
+    {
+        $sma = Paket::where('jenjang', 'SMA')->get();
+        
+        return view('landing.paket',compact('sma'));
+    }
+
+    public function paket_detail($id)
+    {
+        $paket = Paket::where('id', $id)->get();
+
+        return view('landing.paket-detail',compact('paket'));
     }
 
     public function contact()
     {
-        return view('landing.contact');
+        $contact = Contact::all();
+
+        return view('landing.contact',compact('contact'));
     }
 
     public function join()

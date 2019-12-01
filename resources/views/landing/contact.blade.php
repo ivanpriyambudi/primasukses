@@ -13,6 +13,8 @@
 <li class="active">Contact</li>
 @endsection
 
+@foreach($contact as $con)
+
 <section class="section-padding">
           
           <div class="container">
@@ -24,25 +26,17 @@
                     <address>
                       <i class="material-icons brand-color">&#xE55F;</i>
                       <div class="address">
-                        1355 Market Street, Suite 900<br>
-                        San Francisco, CA 94103
-
-                        <hr>
-
-                        <p>Hoffman Parkway, P.O Box 154 Mountain View.<br>
-                        United States of America.</p>
+                        <p>{{$con->alamat}}</p>
                       </div>
 
                       <i class="material-icons brand-color">&#xE61C;</i>
                       <div class="phone">
-                        <p>Fax: (123) 456-7890<br>
-                        Phone: (123) 456-7890</p>
+                        <p>Phone: {{$con->telfon}}</p>
                       </div>
 
                       <i class="material-icons brand-color">&#xE0E1;</i>
                       <div class="mail">
-                        <p><a href="mailto:#">first.last@example.com</a><br>
-                        <a href="#">www.yourdomain.com</a></p>
+                        <p>{{$con->email}}</p>
                       </div>
                     </address>
 
@@ -51,5 +45,6 @@
           </div>
         </section>
 
+@endforeach
 
 @endsection

@@ -27,7 +27,7 @@
 					<article class="post-wrapper">
 						<h2 class="entry-title">{{$art->judul}}</h2>
 						<div class="thumb-wrapper">
-							<img src="{{ str_replace('public/','../../../../', $art->gambar) }}" class="img-responsive" alt="" >
+							<img src="../{{$art->gambar}}" class="img-responsive" alt="" >
 						</div>
 						<div class="entry-content">
 							<p>{{$art->detail}}</p>
