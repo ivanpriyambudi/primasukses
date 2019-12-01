@@ -44,7 +44,7 @@ Artikel
 							<td>{{$dt->detail}}</td>
 							<td class="b-ta">
 								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
-								<a class="waves-effect waves-light btn red">Hapus</a>
+								<a href="{{url('admin/hapus-artikel')}}/{{$dt->id}}" class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
@@ -54,9 +54,9 @@ Artikel
 		</div>
 	</div>
 </div>
-
+@foreach($data as $dt)
 {{-- modal Edit --}}
-<div id="modal1" class="modal">
+<div id="modal{{$dt->id}}" class="modal">
 	<div class="modal-content">
 		<h4>Edit Artikel</h4>
 		<div class="row">
@@ -64,10 +64,12 @@ Artikel
 				<div class="card">
 					<div class="card-content">
 						<div class="row">
-							<form action="" method="POST" class="col s12">
+							<form action="{{route('editartikel')}}" enctype="multipart/form-data" method="POST" class="col s12">
+								@csrf
 								<div class="row">
 									<div class="input-field col s6">
-										<input name="judul" id="judul" type="text" class="validate">
+										<input name="judul" id="judul" type="text" class="validate" value="{{$dt->judul}}">
+										<input name="id" id="judul" type="hidden" class="validate" value="{{$dt->id}}">
 										<label for="judul">Judul Artikel</label>
 									</div>
 									<div class="input-field col s6">
@@ -102,5 +104,5 @@ Artikel
 	</div>
 </div>
 {{-- modal Edit --}}
-
+@endforeach
 @endsection

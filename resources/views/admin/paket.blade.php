@@ -50,7 +50,7 @@ Paket
 							<td>{{$dt->jenjang}}</td>
 							<td class="b-ta">
 								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
-								<a class="waves-effect waves-light btn red">Hapus</a>
+								<a href="{{url('admin/hapus-paket')}}/{{$dt->id}}" class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
@@ -72,10 +72,12 @@ Paket
 				<div class="card">
 					<div class="card-content">
 						<div class="row">
-							<form action="" method="POST" class="col s12">
+							<form action="{{route('editpaket')}}" enctype="multipart/form-data" method="POST" class="col s12">
+								@csrf
 								<div class="row">
 									<div class="input-field col s6">
 										<input name="nama" id="nama" type="text" class="validate" value="{{$dt->nama}}">
+										<input name="id" id="nama" type="hidden" class="validate" value="{{$dt->id}}">
 										<label for="nama">Nama Paket</label>
 									</div>
 									<div class="input-field col s6">

@@ -48,7 +48,7 @@ User
 							
 							<td class="b-ta">
 								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
-								<a class="waves-effect waves-light btn red">Hapus</a>
+								<a href="{{url('admin/hapus-user')}}/{{$dt->id}}" class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
@@ -58,9 +58,9 @@ User
 		</div>
 	</div>
 </div>
-
+@foreach($data as $dt)
 {{-- modal Edit --}}
-<div id="modal1" class="modal">
+<div id="modal{{$dt->id}}" class="modal">
 	<div class="modal-content">
 		<h4>Edit Paket</h4>
 		
@@ -70,18 +70,20 @@ User
 					<div class="card-content">
 						<span class="card-title">Tambah User Baru</span><br>
 						<div class="row">
-							<form action="" method="POST" class="col s12">
+							<form action="{{route('edituser')}}" method="POST" class="col s12">
+								@csrf
 								<div class="row">
 									<div class="input-field col s6">
-										<input name="nama" id="nama" type="text" class="validate">
+										<input name="nama" id="nama" type="text" class="validate" value="{{$dt->nama}}">
+										<input name="id" id="nama" type="hidden" class="validate" value="{{$dt->id}}">
 										<label for="nama">Nama Lengkap</label>
 									</div>
 									<div class="input-field col s6">
-										<input name="username" id="username" type="text" class="validate">
+										<input name="username" id="username" type="text" class="validate" value="{{$dt->username}}" readonly="">
 										<label for="username">Username</label>
 									</div>
 									<div class="input-field col s6">
-										<input name="email" id="email" type="email" class="validate">
+										<input name="email" id="email" type="email" class="validate" value="{{$dt->email}}">
 										<label for="email">Email</label>
 									</div>
 									<div class="input-field col s6">
@@ -89,7 +91,11 @@ User
 										<label for="password">Password</label>
 									</div>
 									<div class="input-field col s6">
-										<select>
+										<input name="telp" id="nama" type="text" class="validate" value="{{$dt->telp}}">
+										<label for="nama">Nomor Telp</label>
+									</div>
+									<div class="input-field col s6">
+										<select name="jenjang">
 											<option value="" disabled selected>Pilih Jenjang</option>
 											<option value="SD">SD</option>
 											<option value="SMP">SMP</option>
@@ -97,6 +103,7 @@ User
 										</select>
 										<label>Jenjang</label>
 									</div>
+									
 
 									<div class="input-field col s12 center">
 										<button type="submit" class="waves-effect waves-light btn b-sub">Submit</button>
@@ -115,6 +122,6 @@ User
 	</div>
 </div>
 {{-- modal Edit --}}
-
+@endforeach
 
 @endsection

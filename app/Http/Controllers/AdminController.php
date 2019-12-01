@@ -44,7 +44,8 @@ class AdminController extends Controller
 	public function show_pengajar()
 	{
 		$data=Pengajar::all();
-		return view('admin.pengajar',compact('data'));
+		$paket=Paket::all();
+		return view('admin.pengajar',compact('data','paket'));
 	}
 
 	

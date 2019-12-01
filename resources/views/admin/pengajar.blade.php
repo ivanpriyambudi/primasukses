@@ -1,14 +1,11 @@
 @extends('admin.app.app')
-
 @section('title')
 <title>Primasukses | Pengajar</title>
 @endsection
-
 @section('title-page')
 Pengajar
 @endsection
 @section('konten')
-
 <div class="row">
 	<div class="col s12 m12 l12">
 		<div class="card">
@@ -25,14 +22,14 @@ Pengajar
 						</tr>
 					</thead>
 					<tfoot>
-						<tr>
-							<th>No</th>
-							<th>Nama</th>
-							<th>NIP</th>
-							<th>Paket</th>
-							<th>Jenjang</th>
-							<th class="b-ta">Action</th>
-						</tr>
+					<tr>
+						<th>No</th>
+						<th>Nama</th>
+						<th>NIP</th>
+						<th>Paket</th>
+						<th>Jenjang</th>
+						<th class="b-ta">Action</th>
+					</tr>
 					</tfoot>
 					<tbody>
 						@php
@@ -48,7 +45,7 @@ Pengajar
 							
 							<td class="b-ta">
 								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
-								<a class="waves-effect waves-light btn red">Hapus</a>
+								<a href="{{url('admin/hapus-pengajar')}}/{{$dt->id}}" class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
@@ -58,9 +55,9 @@ Pengajar
 		</div>
 	</div>
 </div>
-
+@foreach($data as $dt)
 {{-- modal Edit --}}
-<div id="modal1" class="modal">
+<div id="modal{{$dt->id}}" class="modal">
 	<div class="modal-content">
 		<h4>Edit Pengajar</h4>
 		
@@ -70,22 +67,24 @@ Pengajar
 					<div class="card-content">
 						<span class="card-title">Tambah Pengajar Baru</span><br>
 						<div class="row">
-							<form action="" method="POST" class="col s12">
+							<form action="{{route('editpengajar')}}" method="POST" class="col s12">
+								@csrf
 								<div class="row">
 									<div class="input-field col s6">
-										<input name="nama" id="nama" type="text" class="validate">
+										<input name="nama" id="nama" type="text" class="validate" value="{{$dt->nama}}">
+										<input name="id" id="nama" type="hidden" class="validate" value="{{$dt->id}}">
 										<label for="nama">Nama Pengajar</label>
 									</div>
 									<div class="input-field col s6">
-										<input name="nip" id="nip" type="text" class="validate">
+										<input name="nip" id="nip" type="text" class="validate" value="{{$dt->nip}}" readonly="">
 										<label for="nip">NIP Pengajar</label>
 									</div>
 									<div class="input-field col s6">
-										<select>
+										<select name="paket">
 											<option value="" disabled selected>Pilih Paket</option>
-											<option value="SD">SD</option>
-											<option value="SMP">SMP</option>
-											<option value="SMA">SMA</option>
+											@foreach($paket as $pk)
+											<option value="{{$pk->id}}">{{$pk->nama}} - {{$pk->jenjang}}</option>
+											@endforeach
 										</select>
 										<label>Paket</label>
 									</div>
@@ -100,13 +99,11 @@ Pengajar
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<div class="modal-footer">
 		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
 	</div>
 </div>
 {{-- modal Edit --}}
-
-
+@endforeach
 @endsection

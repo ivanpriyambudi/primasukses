@@ -110,15 +110,15 @@ Route::post('admin/edit-pengajar', 'AdminCrudController@editpengajar')
 Route::post('admin/edit-user', 'AdminCrudController@edituser')
 ->name('edituser')->middleware('auth:admin');
 //hapus
-Route::get('admin/hapus-paket', 'AdminCrudController@hapuspaket')
+Route::get('admin/hapus-paket/{id}', 'AdminCrudController@hapuspaket')
 ->name('hapuspaket')->middleware('auth:admin');
-Route::get('admin/hapus-artikel', 'AdminCrudController@hapusartikel')
+Route::get('admin/hapus-artikel/{id}', 'AdminCrudController@hapusartikel')
 ->name('hapusartikel')->middleware('auth:admin');
-Route::get('admin/hapus-pengajar', 'AdminCrudController@hapuspengajar')
+Route::get('admin/hapus-pengajar/{id}', 'AdminCrudController@hapuspengajar')
 ->name('hapuspengajar')->middleware('auth:admin');
-Route::get('admin/hapus-user', 'AdminCrudController@hapususer')
+Route::get('admin/hapus-user/{id}', 'AdminCrudController@hapususer')
 ->name('hapususer')->middleware('auth:admin');
-Route::get('admin/hapus-feedback', 'AdminCrudController@hapusfeedback')
+Route::get('admin/hapus-feedback/{id}', 'AdminCrudController@hapusfeedback')
 ->name('hapusfeedback')->middleware('auth:admin');
 
 
