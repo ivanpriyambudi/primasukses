@@ -8,6 +8,7 @@ use App\About;
 use App\Artikel;
 use App\Paket;
 use App\Contact;
+use Auth;
 
 class HomeController extends Controller
 {

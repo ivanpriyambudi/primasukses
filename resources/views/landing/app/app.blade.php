@@ -73,7 +73,10 @@
               <li class="
               {{ (request()->routeIs(
 
-                'HomePaket'
+                'HomePaketSD',
+                'HomePaketSMP',
+                'HomePaketSMA',
+                'HomePaketDetail'
 
                 )) ? 'active' : '' }}
                 ">
@@ -93,6 +96,13 @@
                 ">
                 <a href="{{route('HomeContact')}}">Contact Us</a>
               </li>
+
+              @if (Auth::guard('user'))
+              @auth('user')
+              <li class=" ">
+                <a href="{{route('SiswaDashboard')}}">Dashboard</a>
+              </li>
+              @else
               <li class="
               {{ (request()->routeIs(
 
@@ -102,6 +112,8 @@
                 ">
                 <a href="{{route('HomeJoin')}}">Join Us</a>
               </li>
+              @endauth
+              @endif
             </ul>
             <!-- menu end-->
           </div>

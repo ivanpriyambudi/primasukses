@@ -25,15 +25,13 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-12">
 				<div class="row">
-
-					
 
 					@if(request()->routeIs('HomePaketSD'))
 
 					@foreach($sd as $s)
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
 								<img src="../{{ $s->gambar }}" class="img-responsive" alt="" >
@@ -56,7 +54,7 @@
 
 					@foreach($smp as $sp)
 
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
 								<img src="{{ str_replace('public/','../../../../', $sp->gambar) }}" class="img-responsive" alt="" >
@@ -78,7 +76,7 @@
 					@if(request()->routeIs('HomePaketSMA'))
 
 					@foreach($sma as $sa)
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
 								<img src="{{ str_replace('public/','../../../../', $sa->gambar) }}" class="img-responsive" alt="" >
@@ -103,22 +101,6 @@
 
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="tt-sidebar-wrapper" role="complementary">
-
-					{{-- <div class="widget widget_categories">
-						<h3 class="widget-title">Recent Post</h3>   
-						<ul>
-							@foreach($paket as $pak)
-							<li><a href="{{route('HomeArtikelDetail', $art->id)}}">{{$art->judul}}</a></li>
-							@endforeach
-						</ul>
-					</div> --}}
-
-				</div>
-
-			</div>
-
 		</div>
 
 		<ul class="pagination post-pagination text-center mt-50">

@@ -53,7 +53,7 @@ Route::post('/regis', 'LoginController@register');
 //////////////////////////////////////////////////////////////////////////////////////// Admin
 
 /////////////////////////////////////////////////////////////////////// Show
-Route::get('admin/dashboard', 'AdminController@dashboard')
+Route::get('admin', 'AdminController@dashboard')
 ->name('AdminDashboard')->middleware('auth:admin');
 
 Route::get('admin/paket', 'AdminController@show_paket')

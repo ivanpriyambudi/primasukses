@@ -16,34 +16,34 @@
 @foreach($contact as $con)
 
 <section class="section-padding">
-          
-          <div class="container">
+  
+  <div class="container">
 
-            <div class="row">
+    <div class="row">
 
-                <div class="col-md-12 contact-info">
+      <div class="col-md-12 contact-info">
 
-                    <address>
-                      <i class="material-icons brand-color">&#xE55F;</i>
-                      <div class="address">
-                        <p>{{$con->alamat}}</p>
-                      </div>
-
-                      <i class="material-icons brand-color">&#xE61C;</i>
-                      <div class="phone">
-                        <p>Phone: {{$con->telfon}}</p>
-                      </div>
-
-                      <i class="material-icons brand-color">&#xE0E1;</i>
-                      <div class="mail">
-                        <p>{{$con->email}}</p>
-                      </div>
-                    </address>
-
-                </div><!-- /.col-md-4 -->
-            </div><!-- /.row -->
+        <address>
+          <i class="material-icons brand-color">&#xE55F;</i>
+          <div class="address">
+            <p>{{$con->alamat}}</p>
           </div>
-        </section>
+
+          <i class="material-icons brand-color">&#xE61C;</i>
+          <div class="phone">
+            <p>Phone: {{$con->telfon}}</p>
+          </div>
+
+          <i class="material-icons brand-color">&#xE0E1;</i>
+          <div class="mail">
+            <p>{{$con->email}}</p>
+          </div>
+        </address>
+
+      </div><!-- /.col-md-4 -->
+    </div><!-- /.row -->
+  </div>
+</section>
 
 @endforeach
 

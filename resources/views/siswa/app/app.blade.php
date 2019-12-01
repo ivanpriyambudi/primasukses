@@ -77,6 +77,7 @@
           ">
           <a class="waves-effect waves-grey active" href="{{route('SiswaShowPaket')}}"><i class="material-icons">work</i>Paket Bimbel Anda</a>
         </li>
+        <li><a class="waves-effect waves-grey active" href="{{route('Home')}}"><i class="material-icons">home</i>Home</a></li>
 
       </ul>
     </div>
