@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\About;
 use App\Artikel;
 
 class HomeController extends Controller
 {
+    public function home(){
+
+        $artikel = DB::table('artikel')->paginate(4);
+
+        return view('landing.home', ['artikel' => $artikel]);
+    }
+
     public function about()
     {
         $about = About::all();
@@ -17,18 +25,22 @@ class HomeController extends Controller
 
     public function artikel()
     {
-        $artikel = Artikel::all();
+        $artikel = DB::table('artikel')->paginate(6);
 
-        return view('landing.artikel',compact('artikel'));
+        return view('landing.artikel', ['artikel' => $artikel]);
     }
 
-    public function artikel_detail()
+    public function artikel_detail($id)
     {
-        return view('landing.artikel-detail');
+        $artikel = Artikel::where('id', $id)->get();
+        $recent = DB::table('artikel')->paginate(3);
+
+        return view('landing.artikel-detail',compact('artikel','recent'));
     }
 
     public function paket()
     {
+        
         return view('landing.paket');
     }
 

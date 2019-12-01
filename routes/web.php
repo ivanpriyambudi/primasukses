@@ -12,9 +12,12 @@
 */
 
 //////////////////////////////////////////////////////////////////////////////////////// Landing Page
-Route::get('/', function () {
-	return view('landing.home');
-})->name('Home');
+// Route::get('/', function () {
+// 	return view('landing.home');
+// })->name('Home');
+
+Route::get('/', 'HomeController@home')
+->name('Home');
 
 Route::get('/about', 'HomeController@about')
 ->name('HomeAbout');
@@ -22,7 +25,7 @@ Route::get('/about', 'HomeController@about')
 Route::get('/artikel', 'HomeController@artikel')
 ->name('HomeArtikel');
 
-Route::get('/artikel-detail', 'HomeController@artikel_detail')
+Route::get('/artikel-detail/{id}', 'HomeController@artikel_detail')
 ->name('HomeArtikelDetail');
 
 Route::get('/paket', 'HomeController@paket')

@@ -79,7 +79,9 @@
                 ">
                 <a href="javascript:void(0)">Paket Bimbel</a>
                 <ul class="dropdown">
-                  <li><a href="{{route('HomePaket')}}">paket</a></li>
+                  <li><a href="{{route('HomePaket')}}">SD</a></li>
+                  <li><a href="{{route('HomePaket')}}">SMP</a></li>
+                  <li><a href="{{route('HomePaket')}}">SMA</a></li>
                 </ul>
               </li>
               <li class="

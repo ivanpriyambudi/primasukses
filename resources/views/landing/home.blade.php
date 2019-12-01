@@ -12,28 +12,30 @@
 
     <div class="row">
 
+      @foreach($artikel as $art)
       <div class="col-md-6">
         <article class="post-wrapper list-article">
           <div class="hover-overlay brand-bg"></div>
-          <div class="thumb-wrapper waves-effect waves-block waves-light">
+          <div class="thumb-wrapper waves-effect waves-block waves-light" style="width: 40%;">
             <a href="#">
-              <img src="assets/img/blog/blog-20.jpg" class="img-responsive" alt="" >
+              <img src="{{ str_replace('public/','../../../', $art->gambar) }}" class="img-responsive" alt="" >
             </a>
           </div>
           <div class="blog-content">
             <header class="entry-header-wrapper">
               <div class="entry-header">
                 <h2 class="entry-title">
-                  <a href="#">Ideas That Moved Us in 2015</a>
+                  <a href="#">{{$art->judul}}</a>
                 </h2>
               </div>
             </header>
             <div class="entry-content">
-              <p>Maecenas varius finibus orci vel dignissim. Nam posuere, magna pellentesque accumsan tincidunt, libero lorem convallis lectus</p>
+              <p>{{ Str::limit($art->detail, 250, '...') }}</p>
             </div>
           </div>
         </article>
       </div>
+      @endforeach
 
     </div>
   </div>

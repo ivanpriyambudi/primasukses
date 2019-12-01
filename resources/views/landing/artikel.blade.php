@@ -27,7 +27,7 @@
 								<img src="{{ str_replace('public/','../../../', $art->gambar) }}" class="img-responsive" alt="" >
 								<div class="entry-header">
 									<h2 class="entry-title">
-										<a href="{{route('HomeArtikelDetail')}}">{{$art->judul}}</a>
+										<a href="{{route('HomeArtikelDetail', $art->id)}}">{{$art->judul}}</a>
 									</h2>
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 						<h3 class="widget-title">Recent Post</h3>   
 						<ul>
 							@foreach($artikel as $art)
-							<li><a href="#">{{$art->judul}}</a></li>
+							<li><a href="{{route('HomeArtikelDetail', $art->id)}}">{{$art->judul}}</a></li>
 							@endforeach
 						</ul>
 					</div>
