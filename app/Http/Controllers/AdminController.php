@@ -7,6 +7,7 @@ use App\Paket;
 use App\Artikel;
 use App\Pengajar;
 use App\User;
+use App\Feedback;
 
 class AdminController extends Controller
 {
@@ -38,7 +39,9 @@ class AdminController extends Controller
 
 	public function show_feedback()
 	{
-		return view('admin.feedback');
+		$data=Feedback::all();
+		
+		return view('admin.feedback',compact('data'));
 	}
 
 	public function show_pengajar()

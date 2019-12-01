@@ -18,7 +18,8 @@ Feedback
 						<tr>
 							<th>No</th>
 							<th>Paket</th>
-							<th>Nama</th>
+							<th>Nama Siswa</th>
+							<th>Nama Pengajar</th>
 							<th>Isi</th>
 							<th class="b-ta">Action</th>
 						</tr>
@@ -27,21 +28,30 @@ Feedback
 						<tr>
 							<th>No</th>
 							<th>Paket</th>
-							<th>Nama</th>
+							<th>Nama Siswa</th>
+							<th>Nama Pengajar</th>
 							<th>Isi</th>
 							<th class="b-ta">Action</th>
 						</tr>
 					</tfoot>
 					<tbody>
 						<tr>
-							<td>1</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
+							@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
+						<tr>
+							<td>{{$no++}}</td>
+							
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('nama')}}</td>
+							<td>{{\App\User::where('id',$dt->id_user)->value('nama')}}</td>
+							<td>{{\App\Pengajar::where('id_paket',$dt->id_paket)->value('nama')}}</td>
+							<th>{{$dt->isi}}</th>
 							<td class="b-ta">
-								<a class="waves-effect waves-light btn red">Hapus</a>
+								<a href="{{route('hapusfeedback',$dt->id)}}" class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

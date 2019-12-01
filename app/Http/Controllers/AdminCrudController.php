@@ -7,6 +7,7 @@ use App\Paket;
 use App\Artikel;
 use App\Pengajar;
 use App\User;
+use App\Feedback;
 use Illuminate\Support\Facades\Hash;
 
 class AdminCrudController extends Controller
@@ -92,6 +93,12 @@ class AdminCrudController extends Controller
     	$data=User::find($id);
     	$data->delete();
         return redirect()->route('AdminShowUser');
+    }
+    public function hapusfeedback($id)
+    {
+        $data=Feedback::find($id);
+        $data->delete();
+        return redirect()->route('AdminShowFeedback');
     }
 
 }
