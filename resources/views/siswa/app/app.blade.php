@@ -2,130 +2,108 @@
 <html lang="en">
 <head>
 
+  <!-- Title -->
   @yield('title')
 
+  <!-- Styles -->
+  <link type="text/css" rel="stylesheet" href="{{asset('assetss/plugins/materialize/css/materialize.min.css')}}"/>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{asset('assetss/plugins/material-preloader/css/materialPreloader.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assetss/plugins/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">        
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,700,900' rel='stylesheet' type='text/css'>
-  <!-- Material Icons CSS -->
-  <link href="{{asset('assets/fonts/iconfont/material-icons.css')}}" rel="stylesheet">
-  <!-- FontAwesoassetme CSS -->
-  <link href="{{asset('assets/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <!-- magnific-assetpopup -->
-  <link href="{{asset('assets/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
-  <!-- flexslidasseter -->
-  <link href="{{asset('assets/flexSlider/flexslider.css')}}" rel="stylesheet">
-  <!-- materialiassetze -->
-  <link href="{{asset('assets/materialize/css/materialize.min.css')}}" rel="stylesheet">
-  <!-- Bootstrassetap -->
-  <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <!-- shortcodassetes -->
-  <link href="{{asset('assets/css/shortcodes/shortcodes.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/shortcodes/login.css')}}" rel="stylesheet">
-  <!-- Main Stylassete CSS -->
-  <link href="{{asset('assets/style.css')}}" rel="stylesheet">
-  <!-- Creative assetCSS -->
-  <link href="{{asset('assets/css/skins/creative.css')}}" rel="stylesheet">
-
-  <style type="text/css">
-    #container {
-      padding-left: 300px;
-    }
-
-    #content {
-      padding: 20px;
-    }
-
-    @media only screen and (max-width : 992px) {
-      #container {
-        padding-left: 0px;
-      }
-    }
-  </style>
+  <!-- Theme Styles -->
+  <link href="{{asset('assetss/css/alpha.min.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{asset('assetss/css/custom.css')}}" rel="stylesheet" type="text/css"/>
 
 </head>
+<body>
 
-<body id="top" class="has-header-search">
+  @include('siswa.app.app-loader')
 
- <header id="header" class="tt-nav nav-border-bottom">
-  <div class="header-sticky brand-header">
-    <div class="container">
-      <div id="materialize-menu" class="menuzord">
-
-        <a href="index.html" class="logo-brand">
-          <h2 class="white-text"><b>Siswa</b></h2>
-        </a>
-
-        <ul class="menuzord-menu pull-right light">
-          <li><a href="javascript:void(0)" style="line-height: 70px;">Akun Siswa</a>
-            <ul class="dropdown">
-              <li><a href="{{route('logout')}}">Logout</a></li>
-            </ul>
+  <aside id="slide-out" class="side-nav white fixed">
+    <div class="side-nav-wrapper">
+      <div class="sidebar-profile">
+        <div class="sidebar-profile-image">
+          <img src="assets/images/profile-image.png" class="circle" alt="">
+        </div>
+        <div class="sidebar-profile-info">
+          <a href="javascript:void(0);" class="account-settings-link">
+            <span>SISWA<i class="material-icons right">arrow_drop_down</i></span>
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-account-settings">
+        <ul>
+          <li class="no-padding">
+            <a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
           </li>
         </ul>
+      </div>
+      <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
 
+        <li class="no-padding 
+        {{ (request()->routeIs(
+
+          'SiswaDashboard'
+
+          )) ? 'active' : '' }}
+          ">
+          <a class="waves-effect waves-grey" href="{{route('SiswaDashboard')}}">
+            <i class="material-icons">dashboard</i>Dashboard
+          </a>
+        </li>
+
+        {{-- User --}}
+
+        <li class="no-padding
+        {{ (request()->routeIs(
+
+          'SiswaEditProfile'
+
+          )) ? 'active' : '' }}
+          ">
+          <a class="waves-effect waves-grey active" href="{{route('SiswaEditProfile')}}"><i class="material-icons">edit</i>Edit Profile</a>
+        </li>
+
+        {{-- Paket --}}
+
+        <li class="no-padding
+        {{ (request()->routeIs(
+
+          'SiswaShowPaket',
+          'SiswaDetailPaket'
+
+          )) ? 'active' : '' }}
+          ">
+          <a class="waves-effect waves-grey active" href="{{route('SiswaShowPaket')}}"><i class="material-icons">work</i>Paket Bimbel Anda</a>
+        </li>
+
+      </ul>
+    </div>
+  </aside>
+  <main class="mn-inner">
+    <div class="row">
+      <div class="col s12">
+        <div class="page-title">@yield('title-page')</div>
       </div>
     </div>
-  </div>
-</header>
 
-<div id="container">
-
-  <div id="menu">
-    <ul id="slide-out" class="side-nav fixed" style="margin-top: 7rem; padding-top: 70px;">
-      <li><a href="#"><i class="material-icons left pr-pt">dashboard</i>Dashboard</a></li>
-    </ul>
-  </div>
-
-  <div id="content">
-    
     @yield('konten')
 
-  </div>
-
+  </main>
 </div>
+<div class="left-sidebar-hover"></div>
 
-<!-- Preloader -->
-<div id="preloader">
-  <div class="preloader-position"> 
-    <div class="progress">
-      <div class="indeterminate"></div>
-    </div>
-  </div>
-</div>
-<!-- End Preloader -->  
-
-<!-- jQuery -->
-<script src="{{asset('assets/js/jquery-2.1.3.min.js')}}"></script>
-<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/materialize/js/materialize.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.easing.min.js')}}"></script>
-<script src="{{asset('assets/js/smoothscroll.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.inview.min.js')}}"></script>
-<script src="{{asset('assets/js/menuzord.js')}}"></script>
-<script src="{{asset('assets/js/equalheight.js')}}"></script>
-<script src="{{asset('assets/js/imagesloaded.js')}}"></script>
-<script src="{{asset('assets/js/jquery.stellar.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.countTo.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.shuffle.min.js')}}"></script>
-<script src="{{asset('assets/js/masonry.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/js/twitterFetcher.min.js')}}"></script>
-<script src="{{asset('assets/flexSlider/jquery.flexslider-min.js')}}"></script>
-<script src="{{asset('assets/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('assets/js/scripts.js')}}"></script>
-
-<script>
-  $('.button-collapse').sideNav({
-    menuWidth: 300,
-    edge: 'left',
-    closeOnClick: false,
-    draggable: true
-  }
-  ); 
-</script>
+<!-- Javascripts -->
+<script src="{{asset('assetss/plugins/jquery/jquery-2.2.0.min.js')}}"></script>
+<script src="{{asset('assetss/plugins/materialize/js/materialize.min.js')}}"></script>
+<script src="{{asset('assetss/plugins/material-preloader/js/materialPreloader.min.js')}}"></script>
+<script src="{{asset('assetss/plugins/jquery-blockui/jquery.blockui.js')}}"></script>
+<script src="{{asset('assetss/js/alpha.min.js')}}"></script>
+<script src="{{asset('assetss/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assetss/js/pages/table-data.js')}}"></script>
 
 @yield('js-plus')
 
-
 </body>
-
 </html>

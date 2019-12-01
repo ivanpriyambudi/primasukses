@@ -20,21 +20,23 @@
 			<div class="col-md-9">
 				<div class="row">
 
+					@foreach($artikel as $art)
 					<div class="col-md-6">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
-								<img src="assets/img/blog/blog-3.jpg" class="img-responsive" alt="" >
+								<img src="{{ str_replace('public/','../../../', $art->gambar) }}" class="img-responsive" alt="" >
 								<div class="entry-header">
 									<h2 class="entry-title">
-										<a href="{{route('HomeArtikelDetail')}}">super duper stantaer tittle goes here</a>
+										<a href="{{route('HomeArtikelDetail')}}">{{$art->judul}}</a>
 									</h2>
 								</div>
 							</div>
 							<div class="entry-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>{{ Str::limit($art->detail, 250, '...') }}</p>
 							</div>
 						</article>
 					</div>
+					@endforeach
 
 				</div>
 			</div>
@@ -44,8 +46,9 @@
 					<div class="widget widget_categories">
 						<h3 class="widget-title">Recent Post</h3>   
 						<ul>
-							<li><a href="#">Technology</a></li>
-							<li><a href="#">Media</a></li>
+							@foreach($artikel as $art)
+							<li><a href="#">{{$art->judul}}</a></li>
+							@endforeach
 						</ul>
 					</div>
 

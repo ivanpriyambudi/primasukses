@@ -15,7 +15,9 @@
 
 <section class="section-padding">
   <div class="container">
-    <p>about.....</p>
+  	@foreach($about as $ab)
+    <p>{{$ab->detail}}</p>
+    @endforeach
   </div>
 </section>
 

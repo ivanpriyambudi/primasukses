@@ -10,4 +10,19 @@ class SiswaController extends Controller
     {
     	return view('siswa.dashboard');
     }
+
+    public function show_edit_profile()
+    {
+    	return view('siswa.edit-profile');
+    }
+
+    public function show_paket()
+    {
+    	return view('siswa.paket');
+    }
+
+    public function detail_paket()
+    {
+    	return view('siswa.detail-paket');
+    }
 }

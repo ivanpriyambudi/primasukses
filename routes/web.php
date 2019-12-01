@@ -88,6 +88,15 @@ Route::get('admin/tambah-contact', 'AdminController@show_add_contact')
 Route::get('user/dashboard', 'SiswaController@dashboard')
 ->name('SiswaDashboard')->middleware('auth:user');
 
+Route::get('user/edit-profile', 'SiswaController@show_edit_profile')
+->name('SiswaEditProfile')->middleware('auth:user');
+
+Route::get('user/paket', 'SiswaController@show_paket')
+->name('SiswaShowPaket')->middleware('auth:user');
+
+Route::get('user/detail-paket', 'SiswaController@detail_paket')
+->name('SiswaDetailPaket')->middleware('auth:user');
+
 //edit admin
 Route::post('admin/edit-paket', 'AdminCrudController@editpaket')
 ->name('editpaket')->middleware('auth:admin');
