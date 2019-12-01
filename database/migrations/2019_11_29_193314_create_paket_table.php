@@ -18,6 +18,7 @@ class CreatePaketTable extends Migration
             $table->string('nama');
             $table->string('detail');
             $table->string('harga');
+            $table->string('gambar');
             $table->string('jenjang');
             $table->timestamps();
         });

@@ -15,7 +15,8 @@ Paket
 			<div class="card-content">
 				<span class="card-title">Tambah Paket Baru</span><br>
 				<div class="row">
-					<form action="" method="POST" class="col s12">
+					<form action="{{route('PostAddPaket')}}" method="POST" enctype="multipart/form-data" class="col s12">
+						@csrf
 						<div class="row">
 							<div class="input-field col s6">
 								<input name="nama" id="nama" type="text" class="validate">
@@ -26,7 +27,7 @@ Paket
 								<label for="harga">Harga Paket</label>
 							</div>
 							<div class="input-field col s6">
-								<select>
+								<select name="jenjang">
 									<option value="" disabled selected>Pilih Jenjang</option>
 									<option value="SD">SD</option>
 									<option value="SMP">SMP</option>

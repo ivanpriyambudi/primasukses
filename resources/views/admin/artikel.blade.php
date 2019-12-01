@@ -33,16 +33,21 @@ Artikel
 						</tr>
 					</tfoot>
 					<tbody>
+						@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
 						<tr>
-							<td>1</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
+							<td>{{$no++}}</td>
+							<th>{{$dt->judul}}</th>
+							<td>{{$dt->gambar}}</td>
+							<td>{{$dt->detail}}</td>
 							<td class="b-ta">
-								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal1">Edit</a>
+								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
 								<a class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

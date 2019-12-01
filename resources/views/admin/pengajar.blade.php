@@ -35,17 +35,23 @@ Pengajar
 						</tr>
 					</tfoot>
 					<tbody>
+						@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
 						<tr>
-							<td>Tiger Nixon</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
-							<td>2011/04/25</td>
+							<td>{{$no++}}</td>
+							<th>{{$dt->nama}}</th>
+							<td>{{$dt->nip}}</td>
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('nama')}}</td>
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('jenjang')}}</td>
+							
 							<td class="b-ta">
-								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal1">Edit</a>
+								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
 								<a class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

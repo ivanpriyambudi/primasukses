@@ -62,15 +62,21 @@ Route::get('admin/pengajar', 'AdminController@show_pengajar')
 /////////////////////////////////////////////////////////////////////// Add
 Route::get('admin/tambah-paket', 'AdminController@show_add_paket')
 ->name('AdminAddPaket')->middleware('auth:admin');
+Route::post('admin/tambah-paket', 'AdminActionsController@addpaket')
+->name('PostAddPaket')->middleware('auth:admin');
 
 Route::get('admin/tambah-artikel', 'AdminController@show_add_artikel')
 ->name('AdminAddArtikel')->middleware('auth:admin');
+Route::post('admin/tambah-artikel', 'AdminActionsController@addartikel')
+->name('PostAddArtikel')->middleware('auth:admin');
 
 Route::get('admin/tambah-user', 'AdminController@show_add_user')
 ->name('AdminAddUser')->middleware('auth:admin');
 
 Route::get('admin/tambah-pengajar', 'AdminController@show_add_pengajar')
 ->name('AdminAddPengajar')->middleware('auth:admin');
+Route::post('admin/tambah-pengajar', 'AdminActionsController@addpengajar')
+->name('PostAddPengajar')->middleware('auth:admin');
 
 Route::get('admin/tambah-about', 'AdminController@show_add_about')
 ->name('AdminAddAbout')->middleware('auth:admin');

@@ -18,8 +18,8 @@ User
 						<tr>
 							<th>No</th>
 							<th>Nama</th>
-							<th>Detail</th>
-							<th>Harga</th>
+							<th>Phone</th>
+							<th>Email</th>
 							<th>Jenjang</th>
 							<th class="b-ta">Action</th>
 						</tr>
@@ -28,24 +28,30 @@ User
 						<tr>
 							<th>No</th>
 							<th>Nama</th>
-							<th>Detail</th>
-							<th>Harga</th>
+							<th>Phone</th>
+							<th>Email</th>
 							<th>Jenjang</th>
 							<th class="b-ta">Action</th>
 						</tr>
 					</tfoot>
 					<tbody>
+						@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
 						<tr>
-							<td>Tiger Nixon</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
-							<td>2011/04/25</td>
+							<td>{{$no++}}</td>
+							<th>{{$dt->nama}}</th>
+							<td>{{$dt->telp}}</td>
+							<td>{{$dt->email}}</td>
+							<td>{{$dt->jenjang}}</td>
+							
 							<td class="b-ta">
-								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal1">Edit</a>
+								<a class="waves-effect waves-light btn orange modal-trigger" href="#modal{{$dt->id}}">Edit</a>
 								<a class="waves-effect waves-light btn red">Hapus</a>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

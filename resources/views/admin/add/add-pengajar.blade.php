@@ -15,7 +15,8 @@ Pengajar
 			<div class="card-content">
 				<span class="card-title">Tambah Pengajar Baru</span><br>
 				<div class="row">
-					<form action="" method="POST" class="col s12">
+					<form action="{{route('PostAddPengajar')}}" method="POST" class="col s12">
+						@csrf
 						<div class="row">
 							<div class="input-field col s6">
 								<input name="nama" id="nama" type="text" class="validate">
@@ -26,11 +27,11 @@ Pengajar
 								<label for="nip">NIP Pengajar</label>
 							</div>
 							<div class="input-field col s6">
-								<select>
+								<select name="paket">
 									<option value="" disabled selected>Pilih Paket</option>
-									<option value="SD">SD</option>
-									<option value="SMP">SMP</option>
-									<option value="SMA">SMA</option>
+									@foreach($paket as $pk)
+									<option value="{{$pk->id}}">{{$pk->nama}} - {{$pk->jenjang}}</option>
+									@endforeach
 								</select>
 								<label>Paket</label>
 							</div>

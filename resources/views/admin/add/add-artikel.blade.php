@@ -15,7 +15,8 @@ Artikel
 			<div class="card-content">
 				<span class="card-title">Tambah Artikel Baru</span><br>
 				<div class="row">
-					<form action="" method="POST" class="col s12">
+					<form action="{{route('PostAddArtikel')}}" method="POST" enctype="multipart/form-data" class="col s12">
+						@csrf
 						<div class="row">
 							<div class="input-field col s6">
 								<input name="judul" id="judul" type="text" class="validate">

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Paket;
+use App\Artikel;
+use App\Pengajar;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -15,17 +19,21 @@ class AdminController extends Controller
 
 	public function show_paket()
 	{
-		return view('admin.paket');
+		$data=Paket::all();
+		return view('admin.paket',compact('data'));
 	}
 
 	public function show_artikel()
 	{
-		return view('admin.artikel');
+		$data=Artikel::all();
+		
+		return view('admin.artikel',compact('data'));
 	}
 
 	public function show_user()
 	{
-		return view('admin.user');
+		$data=User::all();
+		return view('admin.user',compact('data'));
 	}
 
 	public function show_feedback()
@@ -35,7 +43,8 @@ class AdminController extends Controller
 
 	public function show_pengajar()
 	{
-		return view('admin.pengajar');
+		$data=Pengajar::all();
+		return view('admin.pengajar',compact('data'));
 	}
 
 	
@@ -53,7 +62,8 @@ class AdminController extends Controller
 
 	public function show_add_pengajar()
 	{
-		return view('admin.add.add-pengajar');
+		$paket=Paket::all();
+		return view('admin.add.add-pengajar',compact('paket'));
 	}
 
 	public function show_add_about()
