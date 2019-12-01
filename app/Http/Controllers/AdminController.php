@@ -51,6 +51,11 @@ class AdminController extends Controller
 		return view('admin.pengajar',compact('data','paket'));
 	}
 
+	public function show_bimbel()
+	{
+		return view('admin.bimbel');
+	}
+
 	
 
 ///////////////////////////////////////////////////////////// Add

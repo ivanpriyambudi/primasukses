@@ -1,11 +1,11 @@
 @extends('admin.app.app')
 
 @section('title')
-<title>Primasukses | Feedback</title>
+<title>Primasukses | Bimbel</title>
 @endsection
 
 @section('title-page')
-Feedback
+Bimbel
 @endsection
 @section('konten')
 
@@ -19,8 +19,7 @@ Feedback
 							<th>No</th>
 							<th>Paket</th>
 							<th>Nama Siswa</th>
-							<th>Nama Pengajar</th>
-							<th>Isi</th>
+							<th>Status</th>
 							<th class="b-ta">Action</th>
 						</tr>
 					</thead>
@@ -29,28 +28,21 @@ Feedback
 							<th>No</th>
 							<th>Paket</th>
 							<th>Nama Siswa</th>
-							<th>Nama Pengajar</th>
-							<th>Isi</th>
+							<th>Status</th>
 							<th class="b-ta">Action</th>
 						</tr>
 					</tfoot>
 					<tbody>
-						@php
-						$no=1;
-						@endphp
-						@foreach($data as $dt)
 						<tr>
-							<td>{{$no++}}</td>
-
-							<td>{{\App\Paket::where('id',$dt->id_paket)->value('nama')}}</td>
-							<td>{{\App\User::where('id',$dt->id_user)->value('nama')}}</td>
-							<td>{{\App\Pengajar::where('id_paket',$dt->id_paket)->value('nama')}}</td>
-							<td>{{$dt->isi}}</td>
-							<td class="b-ta">
-								<a href="{{route('hapusfeedback',$dt->id)}}" class="waves-effect waves-light btn red">Hapus</a>
+							<td>1</td>
+							<td>Paket A</td>
+							<td>User</td>
+							<td>status</td>
+							<td>
+								<a class="waves-effect waves-light btn blue darken-1 modal-trigger">Terima</a>
+								<a class="waves-effect waves-light btn green darken-1 modal-trigger">Selesai</a>
 							</td>
 						</tr>
-						@endforeach
 					</tbody>
 				</table>
 			</div>

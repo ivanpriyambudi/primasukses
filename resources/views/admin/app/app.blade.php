@@ -196,6 +196,18 @@
                 <a class="waves-effect waves-grey active" href="{{route('AdminShowUser')}}"><i class="material-icons">supervised_user_circle</i>User</a>
               </li>
 
+              {{-- Bimbel --}}
+
+              <li class="no-padding
+              {{ (request()->routeIs(
+
+                'AdminShowBimbel'
+
+                )) ? 'active' : '' }}
+                ">
+                <a class="waves-effect waves-grey active" href="{{route('AdminShowBimbel')}}"><i class="material-icons">menu_book</i>Bimbel</a>
+              </li>
+
               {{-- feedback --}}
 
               <li class="no-padding
