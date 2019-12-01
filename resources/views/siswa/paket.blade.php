@@ -35,16 +35,22 @@ Paket Bimbel Anda
 						</tr>
 					</tfoot>
 					<tbody>
+						@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
 						<tr>
-							<td>Tiger Nixon</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
-							<td>2011/04/25</td>
+							<td>{{$no++}}</td>
+							<th>{{\App\Paket::where('id',$dt->id_paket)->value('nama')}}</th>
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('detail')}}</td>
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('harga')}}</td>
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('jenjang')}}</td>
+							
 							<td class="b-ta">
-								<a href="{{route('SiswaDetailPaket')}}" class="waves-effect waves-light btn blue">Detail</a>
+								<a href="{{route('SiswaDetailPaket',$dt->id)}}" class="waves-effect waves-light btn blue">Detail</a>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

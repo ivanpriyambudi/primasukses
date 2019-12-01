@@ -51,7 +51,13 @@
 								</div>
 								<div class="promo-btn">
 									@auth('user')
-									<a href="#modal1" class="btn btn-lg waves-effect waves-light">Daftar Sekarang</a>
+
+									<form action="{{route('daftarbimbel')}}" method="post">
+										@csrf
+										<input type="hidden" name="paket" value="{{$pak->id}}">
+										<input type="hidden" name="user" value="{{Auth::guard('user')->user()->id}}">
+										<button type="submit" class="btn btn-lg waves-effect waves-light">Daftar Sekarang</button>
+									</form>
 									@endauth
 								</div>
 							</div>							

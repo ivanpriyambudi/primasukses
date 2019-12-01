@@ -8,7 +8,7 @@
 Profile
 @endsection
 @section('konten')
-
+@foreach($data as $dt)
 <div class="row">
 	<div class="col s12">
 		<div class="card">
@@ -16,22 +16,23 @@ Profile
 				<span class="card-title">Edit Profile</span><br>
 				<div class="row">
 
-					<form action="" method="POST" class="col s12">
+					<form action="{{route('editprofil')}}" method="POST" class="col s12">
+						@csrf
 						<div class="row">
 							<div class="input-field col s6">
-								<input name="nama" id="nama" type="text" class="validate" value="">
+								<input name="nama" id="nama" type="text" class="validate" value="{{$dt->nama}}">
 								<label for="nama">Nama Lengkap</label>
 							</div>
 							<div class="input-field col s6">
-								<input name="username" id="username" type="text" class="validate" value="">
+								<input name="username" id="username" type="text" class="validate" value="{{$dt->username}}" readonly="">
 								<label for="username">Username</label>
 							</div>
 							<div class="input-field col s6">
-								<input name="tlp" id="tlp" type="text" class="validate" value="">
+								<input name="tlp" id="tlp" type="text" class="validate" value="{{$dt->telp}}">
 								<label for="tlp">No Telepon</label>
 							</div>
 							<div class="input-field col s6">
-								<input name="email" id="email" type="email" class="validate" value="">
+								<input name="email" id="email" type="email" class="validate" value="{{$dt->email}}">
 								<label for="email">Email</label>
 							</div>
 							<div class="input-field col s6">
@@ -39,7 +40,7 @@ Profile
 								<label for="password">Password</label>
 							</div>
 							<div class="input-field col s6">
-								<select>
+								<select name="jenjang">
 									<option value="" disabled selected>Pilih Jenjang</option>
 									<option value="SD">SD</option>
 									<option value="SMP">SMP</option>
@@ -60,5 +61,5 @@ Profile
 	</div>
 </div>
 
-
+@endforeach
 @endsection

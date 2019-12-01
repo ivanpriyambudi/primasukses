@@ -105,9 +105,15 @@ Route::get('user/edit-profile', 'SiswaController@show_edit_profile')
 
 Route::get('user/paket', 'SiswaController@show_paket')
 ->name('SiswaShowPaket')->middleware('auth:user');
+Route::post('user/bimbel', 'UserActionsController@daftarbimbel')
+->name('daftarbimbel')->middleware('auth:user');
 
-Route::get('user/detail-paket', 'SiswaController@detail_paket')
+Route::get('user/detail-paket/{id}', 'SiswaController@detail_paket')
 ->name('SiswaDetailPaket')->middleware('auth:user');
+Route::post('user/feedback', 'UserActionsController@feedback')
+->name('feedback')->middleware('auth:user');
+Route::post('user/edit', 'UserActionsController@editprofile')
+->name('editprofil')->middleware('auth:user');
 
 //edit admin
 Route::post('admin/edit-paket', 'AdminCrudController@editpaket')
