@@ -88,4 +88,25 @@ Route::get('admin/tambah-contact', 'AdminController@show_add_contact')
 Route::get('user/dashboard', 'SiswaController@dashboard')
 ->name('SiswaDashboard')->middleware('auth:user');
 
+//edit admin
+Route::post('admin/edit-paket', 'AdminCrudController@editpaket')
+->name('editpaket')->middleware('auth:admin');
+Route::post('admin/edit-artikel', 'AdminCrudController@editartikel')
+->name('editartikel')->middleware('auth:admin');
+Route::post('admin/edit-pengajar', 'AdminCrudController@editpengajar')
+->name('editpengajar')->middleware('auth:admin');
+Route::post('admin/edit-user', 'AdminCrudController@edituser')
+->name('edituser')->middleware('auth:admin');
+//hapus
+Route::get('admin/hapus-paket', 'AdminCrudController@hapuspaket')
+->name('hapuspaket')->middleware('auth:admin');
+Route::get('admin/hapus-artikel', 'AdminCrudController@hapusartikel')
+->name('hapusartikel')->middleware('auth:admin');
+Route::get('admin/hapus-pengajar', 'AdminCrudController@hapuspengajar')
+->name('hapuspengajar')->middleware('auth:admin');
+Route::get('admin/hapus-user', 'AdminCrudController@hapususer')
+->name('hapususer')->middleware('auth:admin');
+Route::get('admin/hapus-feedback', 'AdminCrudController@hapusfeedback')
+->name('hapusfeedback')->middleware('auth:admin');
+
 
