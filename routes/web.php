@@ -53,7 +53,7 @@ Route::post('/regis', 'LoginController@register');
 //////////////////////////////////////////////////////////////////////////////////////// Admin
 
 /////////////////////////////////////////////////////////////////////// Show
-Route::get('admin', 'AdminController@dashboard')
+Route::get('admin/dashboard', 'AdminController@dashboard')
 ->name('AdminDashboard')->middleware('auth:admin');
 
 Route::get('admin/paket', 'AdminController@show_paket')
@@ -73,6 +73,10 @@ Route::get('admin/pengajar', 'AdminController@show_pengajar')
 
 Route::get('admin/bimbel', 'AdminController@show_bimbel')
 ->name('AdminShowBimbel')->middleware('auth:admin');
+Route::get('admin/bimbel/terima/{id}', 'AdminActionsController@terima')
+->name('terima')->middleware('auth:admin');
+Route::get('admin/bimbel/selesai{id}', 'AdminActionsController@selesai')
+->name('selesai')->middleware('auth:admin');
 
 /////////////////////////////////////////////////////////////////////// Add
 Route::get('admin/tambah-paket', 'AdminController@show_add_paket')

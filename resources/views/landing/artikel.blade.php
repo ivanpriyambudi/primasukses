@@ -58,11 +58,12 @@
 
 		</div>
 
-		<ul class="pagination post-pagination text-center mt-50">
+<ul class="pagination post-pagination text-center mt-50">
 			<li><a href="#." class="waves-effect waves-light"><i class="fa fa-angle-left"></i></a></li>
 			<li><span class="current waves-effect waves-light">1</span></li>
 			<li><a href="#." class="waves-effect waves-light"><i class="fa fa-angle-right"></i></a></li>
 		</ul>
+		
 
 	</div>
 </section>

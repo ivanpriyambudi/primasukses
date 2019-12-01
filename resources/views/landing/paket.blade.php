@@ -57,7 +57,7 @@
 					<div class="col-md-4">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
-								<img src="{{ str_replace('public/','../../../../', $sp->gambar) }}" class="img-responsive" alt="" >
+								<img src="../{{$sp->gambar}}" class="img-responsive" alt="" >
 								<div class="entry-header">
 									<h2 class="entry-title">
 										<a href="{{route('HomePaketDetail', $sp->id)}}">
@@ -79,7 +79,7 @@
 					<div class="col-md-4">
 						<article class="post-wrapper">
 							<div class="thumb-wrapper">
-								<img src="{{ str_replace('public/','../../../../', $sa->gambar) }}" class="img-responsive" alt="" >
+								<img src="../{{$sa->gambar}}" class="img-responsive" alt="" >
 								<div class="entry-header">
 									<h2 class="entry-title">
 										<a href="{{route('HomePaketDetail', $sa->id)}}">

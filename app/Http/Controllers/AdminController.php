@@ -8,6 +8,7 @@ use App\Artikel;
 use App\Pengajar;
 use App\User;
 use App\Feedback;
+use App\Bimbel;
 
 class AdminController extends Controller
 {
@@ -53,7 +54,8 @@ class AdminController extends Controller
 
 	public function show_bimbel()
 	{
-		return view('admin.bimbel');
+		$data=Bimbel::all();
+		return view('admin.bimbel',compact('data'));
 	}
 
 	

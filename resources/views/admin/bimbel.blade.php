@@ -33,16 +33,28 @@ Bimbel
 						</tr>
 					</tfoot>
 					<tbody>
+						@php
+						$no=1;
+						@endphp
+						@foreach($data as $dt)
 						<tr>
-							<td>1</td>
-							<td>Paket A</td>
-							<td>User</td>
-							<td>status</td>
+							<td>{{$no++}}</td>
+
+							<td>{{\App\Paket::where('id',$dt->id_paket)->value('nama')}}</td>
+							<td>{{\App\User::where('id',$dt->id_user)->value('nama')}}</td>
+							
+							<td>{{$dt->status}}</td>
+							
 							<td>
-								<a class="waves-effect waves-light btn blue darken-1 modal-trigger">Terima</a>
-								<a class="waves-effect waves-light btn green darken-1 modal-trigger">Selesai</a>
+								@if($dt->status=='belum aktif')
+								<a href="{{route('terima',$dt->id)}}" class="waves-effect waves-light btn blue darken-1 modal-trigger">Terima</a>
+								@endif
+								@if($dt->status=='aktif')
+								<a href="{{route('selesai',$dt->id)}}" class="waves-effect waves-light btn green darken-1 modal-trigger">Selesai</a>
+								@endif
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

@@ -34,12 +34,7 @@
       </div>
       <div class="sidebar-account-settings">
         <ul>
-          <li class="no-padding">
-            <a class="waves-effect waves-grey" href="{{route('AdminAddContact')}}"><i class="material-icons">perm_phone_msg</i>Contact</a>
-          </li>
-          <li class="no-padding">
-            <a class="waves-effect waves-grey" href="{{route('AdminAddAbout')}}"><i class="material-icons">language</i>About</a>
-          </li>
+          
           <li class="no-padding">
             <a class="waves-effect waves-grey" href="/logout"><i class="material-icons">exit_to_app</i>Sign Out</a>
           </li>

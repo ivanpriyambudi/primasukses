@@ -15,9 +15,9 @@
 
 <section class="section-padding">
   <div class="container">
-  	@foreach($about as $ab)
-    <p>{{$ab->detail}}</p>
-    @endforeach
+  	
+    <p>Primasukses adalah usaha jasa pendidikan luar sekolah atau program kursus yang bergerak dibidang bimbingan belajar, didirikan tahun 2009, tepatnya di kota Bandung. Program Bimbingan Belajar Primakursus memiliki pasar sangat luas (siswa 3,4,5,6 SD – 7,8,9 SMP, dan 10,11,12 SMA IPA/IPS) dengan target pendidikan adalah meningkatkan prestasi akademik di sekolah, Ujian Akhir Sekolah, Ujian Nasional, dan Sukses Ujian Masuk Perguruan Tinggi Negeri/Favorit.</p>
+    
   </div>
 </section>
 

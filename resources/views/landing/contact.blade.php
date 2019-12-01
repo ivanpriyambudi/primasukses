@@ -13,7 +13,7 @@
 <li class="active">Contact</li>
 @endsection
 
-@foreach($contact as $con)
+
 
 <section class="section-padding">
   
@@ -26,17 +26,17 @@
         <address>
           <i class="material-icons brand-color">&#xE55F;</i>
           <div class="address">
-            <p>{{$con->alamat}}</p>
+            <p>Jl. Telekomunikasi no 1 Bandung - Indonesia</p>
           </div>
 
           <i class="material-icons brand-color">&#xE61C;</i>
           <div class="phone">
-            <p>Phone: {{$con->telfon}}</p>
+            <p>Phone: 02224957</p>
           </div>
 
           <i class="material-icons brand-color">&#xE0E1;</i>
           <div class="mail">
-            <p>{{$con->email}}</p>
+            <p>support@primasukses.com</p>
           </div>
         </address>
 
@@ -45,6 +45,6 @@
   </div>
 </section>
 
-@endforeach
+
 
 @endsection

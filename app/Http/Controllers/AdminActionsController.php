@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Paket;
 use App\Artikel;
 use App\Pengajar;
+use App\Bimbel;
 
 class AdminActionsController extends Controller
 {
@@ -52,4 +53,19 @@ class AdminActionsController extends Controller
     	$data->save();
         return redirect()->route('AdminShowPengajar');
     }
+    public function terima($id)
+    {
+        $data=Bimbel::find($id);
+        $data->status='aktif';
+        $data->save();
+        return redirect()->route('AdminShowBimbel');
+    }
+    public function selesai($id)
+    {
+        $data=Bimbel::find($id);
+        $data->status='selesai';
+        $data->save();
+        return redirect()->route('AdminShowBimbel');
+    }
+
 }

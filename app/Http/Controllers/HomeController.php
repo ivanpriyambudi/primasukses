@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\About;
+
 use App\Artikel;
 use App\Paket;
-use App\Contact;
+
 use Auth;
 
 class HomeController extends Controller
@@ -21,14 +21,14 @@ class HomeController extends Controller
 
     public function about()
     {
-        $about = About::all();
+        
 
-        return view('landing.about',compact('about'));
+        return view('landing.about');
     }
 
     public function artikel()
     {
-        $artikel = DB::table('artikel')->paginate(6);
+        $artikel = DB::table('artikel')->paginate(4);
 
         return view('landing.artikel', ['artikel' => $artikel]);
     }
@@ -71,9 +71,9 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $contact = Contact::all();
+        
 
-        return view('landing.contact',compact('contact'));
+        return view('landing.contact');
     }
 
     public function join()
