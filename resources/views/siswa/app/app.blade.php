@@ -77,7 +77,7 @@
           ">
           <a class="waves-effect waves-grey active" href="{{route('SiswaShowPaket')}}"><i class="material-icons">work</i>Paket Bimbel Anda</a>
         </li>
-        <li><a class="waves-effect waves-grey active" href="{{route('Home')}}"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="waves-effect waves-grey active" href="../paket/{{strtolower(Auth::guard('user')->user()->jenjang)}}"><i class="material-icons">menu_book</i>Pilih Paket Bimbel</a></li>
 
       </ul>
     </div>

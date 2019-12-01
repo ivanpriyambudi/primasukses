@@ -4,7 +4,7 @@
       <div class="text-center">
         <h1 class="intro-title text-capitalize white-text">Primasukses</h1>
         <span class="sub-intro lead white-text">Belajar lebih asik dan efisien bersama kami.</span>
-        <a href="#." class="btn btn-lg waves-effect waves-light mt-30">Join Us</a>
+        <a href="{{route('HomeJoin')}}" class="btn btn-lg waves-effect waves-light mt-30">Join Us</a>
       </div>
     </div>
   </div>
@@ -90,7 +90,7 @@
         <h2 class="font-30 white-text text-bold text-uppercase no-margin">Belajar bersama Primasukses</h2>
       </div>
       <div class="promo-btn">
-        <a href="#." class="btn white waves-effect waves-grey">Join Us Now</a>
+        <a href="{{route('HomeJoin')}}" class="btn white waves-effect waves-grey">Join Us Now</a>
       </div>
     </div>
   </div>
